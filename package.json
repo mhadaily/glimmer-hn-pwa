@@ -1,31 +1,32 @@
 {
-    "name": "glimmer-hn-pwa",
-    "version": "1.0.0",
-    "description": "This Glimmer Hacker New Progressive Web App",
-    "directories": {
-        "doc": "doc",
-        "test": "tests"
-    },
-    "scripts": {
-        "build": "ember build",
-        "start": "ember server",
-        "test": "ember test"
-    },
-    "devDependencies": {
-        "@glimmer/application": "^0.6.0",
-        "@glimmer/application-pipeline": "^0.7.3",
-        "@glimmer/blueprint": "^0.4.0",
-        "@glimmer/component": "^0.5.0",
-        "@glimmer/resolver": "^0.3.1",
-        "broccoli-asset-rev": "^2.5.0",
-        "ember-cli": "^2.14.0-beta.2",
-        "ember-cli-inject-live-reload": "^1.6.1",
-        "ember-cli-sass": "^6.2.0",
-        "ember-cli-uglify": "^1.2.0",
-        "typescript": "^2.3.4"
-    },
-    "engines": {
-        "node": ">= 4.0"
-    },
-    "private": true
+  "name": "glimmer-hn-pwa",
+  "version": "1.0.0",
+  "description": "This Glimmer Hacker New Progressive Web App",
+  "directories": {
+    "doc": "doc",
+    "test": "tests"
+  },
+  "scripts": {
+    "build": "ember build",
+    "start": "ember server",
+    "test": "ember test"
+  },
+  "devDependencies": {
+    "@glimmer/application": "^0.6.0",
+    "@glimmer/application-pipeline": "^0.7.3",
+    "@glimmer/blueprint": "^0.4.0",
+    "@glimmer/component": "^0.5.0",
+    "@glimmer/resolver": "^0.3.1",
+    "broccoli-asset-rev": "^2.5.0",
+    "ember-cli": "^2.14.0-beta.2",
+    "ember-cli-inject-live-reload": "^1.6.1",
+    "ember-cli-sass": "^6.2.0",
+    "ember-cli-uglify": "^1.2.0",
+    "regenerator-runtime": "^0.10.5",
+    "typescript": "^2.3.4"
+  },
+  "engines": {
+    "node": ">= 4.0"
+  },
+  "private": true
 }

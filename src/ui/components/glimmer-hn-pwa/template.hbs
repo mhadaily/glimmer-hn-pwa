@@ -1,3 +1,12 @@
-<div>
-  {{hello}}
-</div>
+<main>
+  {{#each results key="index" as |result|}}
+    <article class="article">
+      <div class="metadata">
+        <h2><a href="{{result.url}}" class="outboundLink">{{result.title}}</a></h2>
+        <p>{{result.points}} points by <a href="/user/{{result.user}}" class="link">{{result.user}}</a> {{result.time}}
+          <span> | <a href="/item/{{result.id}}" class="link">{{result.comments_count}}</a></span>
+        </p>
+      </div>
+    </article>
+  {{/each}}
+</main>
