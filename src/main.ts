@@ -10,7 +10,7 @@ export default class App extends Application {
 
     super({
       rootName: resolverConfiguration.app.rootName,
-      resolver
+      resolver,
     });
   }
 }

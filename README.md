@@ -1,7 +1,7 @@
 # glimmer-hn-pwa
 
-This README outlines the details of collaborating on this Glimmer application.
-A short introduction of this app could easily go here.
+This is an implementaion of a progressive web app with Glimmer (Emver template engine). 
+Here is the result with Lighthouse 2.1.0
 
 ## Prerequisites
 
