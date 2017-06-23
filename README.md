@@ -1,6 +1,6 @@
-# glimmer-hn-pwa
+# Glimmer Hacker News Progressive Web App
 
-This is an implementaion of a progressive web app with Glimmer (Emver template engine). 
+This is an implementation of a progressive web app with Glimmer (Ember template engine). 
 Here is the result with Lighthouse 2.1.0
 
 ## Prerequisites
