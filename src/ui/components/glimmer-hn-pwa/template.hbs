@@ -1,12 +1,20 @@
-<main>
-  {{#each results key="index" as |result|}}
-    <article class="article">
-      <div class="metadata">
-        <h2><a href="{{result.url}}" class="outboundLink">{{result.title}}</a></h2>
-        <p>{{result.points}} points by <a href="/user/{{result.user}}" class="link">{{result.user}}</a> {{result.time}}
-          <span> | <a href="/item/{{result.id}}" class="link">{{result.comments_count}}</a></span>
-        </p>
-      </div>
-    </article>
-  {{/each}}
-</main>
+<ul class="filters">
+
+</ul>
+<header class="header">
+  <nav class="inner">
+    <a href="#/">LOGO</a>
+    <a href="#/" class="{{if (eq routeMode 'top') "selected"}}">Top</a>
+    <a href="#/new" class="{{if (eq routeMode 'new') "selected"}}">New</a>
+    <a href="#/show" class="{{if (eq routeMode 'show') "selected"}}">Show</a>
+    <a href="#/ask" class="{{if (eq routeMode 'ask') "selected"}}">Ask</a>
+    <a href="#/jobs" class="{{if (eq routeMode 'jobs') "selected"}}">Jobs</a>
+  </nav>
+</header>
+<div class="news-list-nav"><a class="disabled">&lt; prev</a><span>1/25</span><a href="/top/2" class="">more &gt;</a>
+</div>
+
+<div class="news-list">
+  <items-list @results={{results}}></items-list>
+</div>
+
