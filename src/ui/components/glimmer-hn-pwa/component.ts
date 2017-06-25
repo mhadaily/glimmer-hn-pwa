@@ -70,4 +70,16 @@ export default class GlimmerHnPwa extends Component {
       this.results = [ ...res ];
     });
   }
+
+  cleanUp() {
+
+  }
+
+  previousPage() {
+
+  }
+
+  nextPage() {
+
+  }
 }
