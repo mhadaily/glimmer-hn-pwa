@@ -4,6 +4,9 @@ const GlimmerApp = require('@glimmer/application-pipeline').GlimmerApp;
 
 module.exports = function(defaults) {
   let app = new GlimmerApp(defaults, {
+    fingerprint: {
+      enabled: true,
+    },
     'esw-cache-fallback': {
       patterns: [
         '/v0/(.+)',
