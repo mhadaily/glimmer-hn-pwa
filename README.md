@@ -1,7 +1,15 @@
 # Glimmer Hacker News Progressive Web App
 
 This is an implementation of a progressive web app with Glimmer (Ember template engine). 
-Here is the result with Lighthouse 2.1.0
+Here is the result
+
+with webpagetest on 3G: 
+
+[Performance Results (webpagetest):](https://www.webpagetest.org/result/170626_00_46d2a10b1a22cd6edc3e99fa6b403bde/)
+
+and with Lighthouse 2.1.0
+
+[![Lighthouse 2.1.0](lighthouse.jpg)](https://glimmer-hn-pwa.firebaseapp.com/)
 
 ## Prerequisites
 
