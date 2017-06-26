@@ -10,6 +10,15 @@
             "value": "</app-f3a2bf39df4bd42d025b2f586ee354b4.js>;rel=preload;as=script"
           }
         ]
+      },
+      {
+        "source": "**/*.@(jpg|jpeg|gif|png)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "max-age=30672000"
+          }
+        ]
       }
     ],
     "ignore": [
