@@ -14,12 +14,14 @@
         <span class="host"> (lists.debian.org)</span>
       </span><br>
         <span class="meta">
-        <span class="by">
+    {{#if result.user}}
+      <span class="by">
       by <a href="#/user/{{result.user}}" class="">{{result.user}}</a>
       </span>
-      <span class="time">
-        {{result.time_ago}}
-      </span>
+    {{/if}}
+          <span class="time">
+            {{result.time_ago}}
+          </span>
     <span class="comments-link">
       | <a href="#/item/{{result.id}}" class="">{{result.comments_count}}</a>
       </span>
