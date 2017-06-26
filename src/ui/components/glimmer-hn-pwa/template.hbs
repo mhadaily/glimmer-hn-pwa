@@ -10,7 +10,7 @@
       Glimmer.js |
     </a>
     <a href="#/" class="{{if (eq routeMode 'top') "selected"}} {{if (eq routeMode '') "selected"}}">Top</a>
-    <a href="#/new" class="{{if (eq routeMode 'new') "selected"}}">New</a>
+    <a href="#/newest" class="{{if (eq routeMode 'newest') "selected"}}">New</a>
     <a href="#/show" class="{{if (eq routeMode 'show') "selected"}}">Show</a>
     <a href="#/ask" class="{{if (eq routeMode 'ask') "selected"}}">Ask</a>
     <a href="#/jobs" class="{{if (eq routeMode 'jobs') "selected"}}">Jobs</a>
@@ -19,14 +19,15 @@
 
 <div class="news-view">
   <div class="news-list-nav">
-    <a onclick="{{action previousPage}}">&lt; prev</a>
-    <a onclick="{{action nextPage}}">more &gt;</a>
+    <a onclick={{action previousPage}}>&lt; prev</a>
+    <a onclick={{action nextPage}}>more &gt;</a>
   </div>
-  <div class="news-list" :key="displayedPage" v-if="displayedPage > 0">
+  <div class="news-list">
     <div class="view">
-      <items-list  @results={{results}}
-                    @onDestroy={{action cleanUp}}
-      ></items-list>
+      <items-list
+        @results={{results}}
+          @onDestroy={{action cleanUp}}>
+      </items-list>
     </div>
   </div>
 </div>

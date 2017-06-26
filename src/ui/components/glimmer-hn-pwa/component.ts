@@ -7,18 +7,19 @@ const router = new Navigo(null, true);
 
 export default class GlimmerHnPwa extends Component {
 
-  @tracked results: any[];
+  @tracked page: number = 0;
+  @tracked results: any[] = [];
   @tracked routeMode: string = 'top';
 
   constructor(options) {
     super(options);
     router
       .on({
-        '/': () => this.topNews(),
-        '/new': () => this.new(),
-        '/show': () => this.show(),
-        '/ask': () => this.ask(),
-        '/jobs': () => this.jobs(),
+        '/': () => this.getDataAndLoad('news', this.page),
+        '/newest': () => this.getDataAndLoad('newest', this.page),
+        '/show': () => this.getDataAndLoad('show', this.page),
+        '/ask': () => this.getDataAndLoad('ask', this.page),
+        '/jobs': () => this.getDataAndLoad('jobs', this.page),
         '/user/:username': (username) => this.user(username),
         '/item/:id': (id) => this.comment(id),
       })
@@ -29,29 +30,9 @@ export default class GlimmerHnPwa extends Component {
     return page ? `${API}/${model}?page=${page}` : `${API}/${model}`;
   }
 
-  topNews() {
-    this.routeMode = 'top';
-    this.loadModel(this.getEndpoint('news', 1));
-  }
-
-  new() {
-    this.routeMode = 'new';
-    this.loadModel(this.getEndpoint('newest', 1));
-  }
-
-  show() {
-    this.routeMode = 'show';
-    this.loadModel(this.getEndpoint('show', 1));
-  }
-
-  ask() {
-    this.routeMode = 'ask';
-    this.loadModel(this.getEndpoint('ask', 1));
-  }
-
-  jobs() {
-    this.routeMode = 'jobs';
-    this.loadModel(this.getEndpoint('jobs', 1));
+  getDataAndLoad(model, page, param?) {
+    this.routeMode = model;
+    return this.loadModel(this.getEndpoint(model, page));
   }
 
   user({ username }) {
@@ -72,14 +53,17 @@ export default class GlimmerHnPwa extends Component {
   }
 
   cleanUp() {
-
+    this.page = 0;
   }
 
   previousPage() {
-
+    if (this.page > 0) {
+      this.page = this.page - 1;
+    }
   }
 
   nextPage() {
-
+    this.page = this.page + 1;
   }
+
 }
