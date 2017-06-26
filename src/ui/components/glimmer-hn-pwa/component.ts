@@ -65,5 +65,4 @@ export default class GlimmerHnPwa extends Component {
   nextPage() {
     this.page = this.page + 1;
   }
-
 }
