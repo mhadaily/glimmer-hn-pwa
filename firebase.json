@@ -19,6 +19,15 @@
             "value": "max-age=30672000"
           }
         ]
+      },
+      {
+        "source": "manifest.json",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "max-age=86400"
+          }
+        ]
       }
     ],
     "ignore": [
