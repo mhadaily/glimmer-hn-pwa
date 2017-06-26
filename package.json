@@ -19,6 +19,7 @@
     "@glimmer/resolver": "^0.3.1",
     "broccoli-asset-rev": "^2.5.0",
     "ember-cli": "^2.14.0-beta.2",
+    "ember-cli-html-minifier": "^0.2.1",
     "ember-cli-inject-live-reload": "^1.6.1",
     "ember-cli-inline-content": "^0.4.1",
     "ember-cli-sass": "^6.2.0",

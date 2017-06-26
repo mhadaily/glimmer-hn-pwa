@@ -9,9 +9,25 @@ module.exports = function(defaults) {
         '/v0/(.+)',
       ],
     },
+    minifyJS: {
+      enabled: true,
+    },
+    minifyCSS: {
+      enabled: true,
+    },
     inlineContent: {
-      'critical-path-css': 'src/ui/styles/app.scss'
-    }
+      'critical-path-css': 'src/ui/styles/app.scss',
+    },
+    minifyHTML: {
+      enabled: true,
+      htmlFiles: ['index.html'],
+      minifierOptions: {
+        collapseWhitespace: true,
+        removeComments: true,
+        minifyJS: true,
+        minifyCSS: true,
+      },
+    },
   });
   
   // Use `app.import` to add additional libraries to the generated
