@@ -16,7 +16,7 @@ module.exports = function(defaults) {
       enabled: true,
     },
     inlineContent: {
-      'critical-path-css': 'src/ui/styles/app.scss',
+      'critical-css': 'src/ui/styles/app.css',
     },
     minifyHTML: {
       enabled: true,
