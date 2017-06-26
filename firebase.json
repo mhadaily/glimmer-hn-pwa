@@ -1,6 +1,17 @@
 {
   "hosting": {
     "public": "dist",
+    "headers": [
+      {
+        "source": "/",
+        "headers": [
+          {
+            "key": "Link",
+            "value": "</app-f3a2bf39df4bd42d025b2f586ee354b4.js>;rel=preload;as=script"
+          }
+        ]
+      }
+    ],
     "ignore": [
       "firebase.json",
       "**/.*",
