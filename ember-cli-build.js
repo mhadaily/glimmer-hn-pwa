@@ -2,32 +2,36 @@
 const crypto = require('crypto');
 const randomString = require('randomstring').generate();
 const GlimmerApp = require('@glimmer/application-pipeline').GlimmerApp;
+const prod = process.env.EMBER_ENV === 'production';
 
 module.exports = function(defaults) {
   let app = new GlimmerApp(defaults, {
     fingerprint: {
       exclude: ['icon'],
-      enabled: true,
-      generateAssetMap: true,
-      fingerprintAssetMap: true,
+      enabled: prod,
+      generateAssetMap: prod,
+      fingerprintAssetMap: prod,
       customHash: crypto.createHash('md5').update(randomString).digest('hex'),
     },
     'esw-cache-fallback': {
       patterns: [
-        '/v0/(.+)',
+        '/(newest|show|ask|jobs|user|item)/(.+)',
       ],
     },
     minifyJS: {
-      enabled: true,
+      enabled: prod,
+      options: {
+        mangle: true,
+      },
     },
     minifyCSS: {
-      enabled: true,
+      enabled: prod,
     },
     inlineContent: {
       'critical-css': 'src/ui/styles/app.css',
     },
     minifyHTML: {
-      enabled: true,
+      enabled: prod,
       htmlFiles: ['index.html'],
       minifierOptions: {
         collapseWhitespace: true,
