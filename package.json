@@ -29,7 +29,6 @@
     "ember-service-worker-cache-fallback": "^0.6.1",
     "ember-service-worker-force-update": "^0.1.0",
     "ember-service-worker-index": "^0.6.1",
-    "ember-service-worker-project-entangled-registration": "^0.1.2",
     "git-rev-sync": "^1.9.1",
     "randomstring": "^1.1.5",
     "regenerator-runtime": "^0.10.5",
