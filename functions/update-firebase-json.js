@@ -18,3 +18,4 @@ const newFile = JSON.stringify(file, null, 2);
 
 // write new firebase.json with new app-{hash}.js file
 fs.writeFileSync(FIREBASE, newFile);
+console.log('Firebase.json has been successfully updated.');
