@@ -1,22 +1,46 @@
 'use strict';
 const crypto = require('crypto');
 const randomString = require('randomstring').generate();
+const git = require('git-rev-sync');
 const GlimmerApp = require('@glimmer/application-pipeline').GlimmerApp;
 const prod = process.env.EMBER_ENV === 'production';
+const customHash = crypto.createHash('md5').update(randomString).digest('hex');
+// get last commit short hash
+const version = git.short();
 
 module.exports = function(defaults) {
   let app = new GlimmerApp(defaults, {
     fingerprint: {
-      exclude: ['icon'],
       enabled: prod,
+      exclude: ['icon'],
       generateAssetMap: prod,
       fingerprintAssetMap: prod,
-      customHash: crypto.createHash('md5').update(randomString).digest('hex'),
+      customHash,
+    },
+    'esw-index': {
+      location: 'index.html',
+      // Bypass esw-index and don't serve cached index file for matching URLs
+      excludeScope: [/\/localhost(\/.*)?$/],
+      version,
+    },
+    'asset-cache': {
+      include: [
+        'assets/**/*',
+        '**/*',
+      ],
+      exclude: [
+        '**/*.txt',
+        'test.json',
+        'sw.js',
+      ],
+      version,
+      requestMode: 'cors',
     },
     'esw-cache-fallback': {
       patterns: [
         '/(newest|show|ask|jobs|user|item)/(.+)',
       ],
+      version,
     },
     minifyJS: {
       enabled: prod,
