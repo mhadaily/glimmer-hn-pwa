@@ -39,6 +39,7 @@ module.exports = function(defaults) {
     'esw-cache-fallback': {
       patterns: [
         '/',
+        'index.html',
       ],
       version,
     },
