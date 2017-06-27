@@ -1,5 +1,6 @@
 'use strict';
-
+const crypto = require('crypto');
+const randomString = require('randomstring').generate();
 const GlimmerApp = require('@glimmer/application-pipeline').GlimmerApp;
 
 module.exports = function(defaults) {
@@ -7,6 +8,9 @@ module.exports = function(defaults) {
     fingerprint: {
       exclude: ['icon'],
       enabled: true,
+      generateAssetMap: true,
+      fingerprintAssetMap: true,
+      customHash: crypto.createHash('md5').update(randomString).digest('hex'),
     },
     'esw-cache-fallback': {
       patterns: [
