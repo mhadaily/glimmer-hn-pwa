@@ -38,7 +38,7 @@ module.exports = function(defaults) {
     },
     'esw-cache-fallback': {
       patterns: [
-        '/(newest|show|ask|jobs|user|item)/(.+)',
+        'node-hnapi.herokuapp.com/(.+)',
       ],
       version,
     },
