@@ -27,6 +27,7 @@ module.exports = function(defaults) {
       include: [
         'assets/**/*',
         '**/*',
+        'sw-registration.js',
       ],
       exclude: [
         '**/*.txt',
@@ -38,8 +39,7 @@ module.exports = function(defaults) {
     },
     'esw-cache-fallback': {
       patterns: [
-        '/',
-        'index.html',
+        'https://node-hnapi.herokuapp.com/(.+)',
       ],
       version,
     },
