@@ -7,7 +7,7 @@
     "test": "tests"
   },
   "scripts": {
-    "build": "ember build -prod",
+    "build": "ember build -prod && node ./functions/update-firebase-json.js",
     "start": "ember server",
     "test": "ember test"
   },
