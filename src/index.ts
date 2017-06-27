@@ -17,4 +17,16 @@ app.registerInitializer({
 
 app.renderComponent('glimmer-hn-pwa', containerElement, null);
 
-app.boot();
+requestAnimationFrame(() => {
+  performance.mark('beforeRender');
+  app.boot();
+  performance.mark('afterRender');
+  requestAnimationFrame(() => {
+    performance.mark('afterPaint');
+    setTimeout(() => {
+      performance.measure('download-parse-compile', 'beforeRender', 'afterRender');
+      performance.measure('render', 'beforeRender', 'afterRender');
+      performance.measure('paint', 'afterRender', 'afterPaint');
+    }, 100);
+  });
+});
