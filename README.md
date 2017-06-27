@@ -12,6 +12,13 @@ and with Lighthouse 2.1.0
 
 [![Lighthouse 2.1.0](lighthouse.jpg)](https://glimmer-hn-pwa.firebaseapp.com/)
 
+## TODO
+* Add next and previous function to see more news
+* Consider using official api to have realtime update
+* Collapsible comment threads, with child counts
+* Last visit details for stories are cached in localStorage
+* Consider adding animations 
+
 ## Prerequisites
 
 You will need the following things properly installed on your computer.
