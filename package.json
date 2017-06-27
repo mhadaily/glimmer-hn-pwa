@@ -18,7 +18,7 @@
     "@glimmer/component": "^0.5.0",
     "@glimmer/resolver": "^0.3.1",
     "broccoli-asset-rev": "^2.5.0",
-    "ember-cli": "^2.14.0-beta.2",
+    "ember-cli": "^2.13.3",
     "ember-cli-html-minifier": "^0.2.1",
     "ember-cli-inject-live-reload": "^1.6.1",
     "ember-cli-inline-content": "^0.4.1",
@@ -27,9 +27,10 @@
     "ember-service-worker": "^0.6.7",
     "ember-service-worker-asset-cache": "^0.6.1",
     "ember-service-worker-cache-fallback": "^0.6.1",
+    "ember-service-worker-force-update": "^0.1.0",
     "ember-service-worker-index": "^0.6.1",
     "regenerator-runtime": "^0.10.5",
-    "typescript": "^2.3.4"
+    "typescript": "^2.4.1"
   },
   "engines": {
     "node": ">= 4.0"
