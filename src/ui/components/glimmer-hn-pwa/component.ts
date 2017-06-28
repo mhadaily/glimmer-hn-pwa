@@ -6,7 +6,7 @@ const API = 'https://node-hnapi.herokuapp.com';
 const router = new Navigo(null, true);
 
 export default class GlimmerHnPwa extends Component {
-
+  appShell = document.getElementById('app-shell');
   @tracked page: number = 0;
   @tracked results: any[] = [];
   @tracked routeMode: string = 'top';
@@ -49,6 +49,9 @@ export default class GlimmerHnPwa extends Component {
     this.results = [];
     fetchItems(endpoint).then((res) => {
       this.results = [ ...res ];
+      if (this.appShell) {
+        this.appShell.remove();
+      }
     });
   }
 
