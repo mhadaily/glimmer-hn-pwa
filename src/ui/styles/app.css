@@ -101,6 +101,16 @@ a {
   }
 }
 
+@media (max-width: 400px) {
+  .container-logo > a > span {
+    display: none;
+  }
+
+  .news-item {
+    margin: 15px;
+  }
+}
+
 .progress[data-v-b9f0df9e] {
   position: fixed;
   top: 0;
