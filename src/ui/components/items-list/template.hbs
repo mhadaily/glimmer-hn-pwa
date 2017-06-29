@@ -5,13 +5,13 @@
       {{{result.about}}}
     {{/if}}
     {{#if result.title}}
-      <li class="news-item">
+      <li class="news-item fadein">
         <span class="score">{{result.points}}</span>
         <span class="title">
       <a href="{{result.url}}" target="_blank" rel="noopener">
         {{result.title}}
       </a>
-        <span class="host"> (lists.debian.org)</span>
+        <span class="host"> {{result.domain}}</span>
       </span><br>
         <span class="meta">
     {{#if result.user}}
