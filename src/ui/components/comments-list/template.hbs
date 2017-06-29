@@ -1,7 +1,31 @@
+{{#if @post.title}}
+  <ul>
+    <li class="news-item">
+      <span class="score">{{@post.points}}</span>
+      <span class="title">
+        <a href="{{@post.url}}" target="_blank" rel="noopener">
+          {{@post.title}}
+        </a>
+        <span class="host"> {{@post.domain}}</span>
+    </span>
+      <br>
+      <span class="meta">
+        {{#if @post.user}}
+          <span class="by">
+          by <a href="#/user/{{@post.user}}" class="">{{@post.user}}</a>
+          </span>
+        {{/if}}
+        <span class="time">
+          {{@post.time_ago}}
+        </span>
+    </span>
+    </li>
+  </ul>
+{{/if}}
 <h2>Comments</h2>
 <div class="item-view-comments">
   <p class="item-view-comments-header">
-    {{@comments.comments_count}} {{#if (eq @result.comments_count 1)}} Comment  {{else}} Comments {{/if}}
+    {{@post.comments_count}} {{#if (eq @post.comments_count 1)}} Comment  {{else}} Comments {{/if}}
     <svg width="44px" height="44px" viewBox="0 0 44 44" class="spinner" style="display: none;">
       <circle fill="none" stroke-width="4" stroke-linecap="round" cx="22" cy="22" r="20" class="path"></circle>
     </svg>
