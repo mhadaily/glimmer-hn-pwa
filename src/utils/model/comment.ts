@@ -8,3 +8,16 @@ export interface Comment {
   deleted: boolean;
   comments: Comment[];
 }
+
+export interface Comments {
+  comments: Comment[];
+  comments_count: number;
+  domain: string;
+  points: number;
+  time: number;
+  time_ago: string;
+  title: string;
+  type: string;
+  url: string;
+  user: string;
+}
