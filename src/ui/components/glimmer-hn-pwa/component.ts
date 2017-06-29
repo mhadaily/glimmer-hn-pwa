@@ -3,7 +3,7 @@ import Navigo from 'navigo';
 import fetchItems from '../../../utils/fetch';
 import { API }  from '../../../utils/constant/api';
 import { News } from '../../../utils/model/news';
-import { Comments } from '../../../utils/model/comment';
+import { Comments, Comment } from '../../../utils/model/comment';
 import { User } from '../../../utils/model/user';
 
 const router = new Navigo(null, true);
@@ -12,7 +12,8 @@ export default class GlimmerHnPwa extends Component {
   appShell = document.getElementById('app-shell');
   @tracked page: number = 1;
   @tracked results: News[];
-  @tracked comments: Comments;
+  @tracked comments: Comment[];
+  @tracked post: Comments;
   @tracked userInfo: User;
   @tracked routeMode: string = 'news';
   @tracked loading: boolean = true;
@@ -54,17 +55,18 @@ export default class GlimmerHnPwa extends Component {
     this.loading = true;
     fetchItems(endpoint)
       .then((res) => {
+        this.loading = false;
         switch (this.routeMode) {
           case 'user':
             this.userInfo = { ...res };
             break;
           case 'item':
-            this.comments = { ...res };
+            this.comments = [...res.comments];
+            this.post = { ...res };
             break;
           default:
             this.results = res;
         }
-        this.loading = false;
       });
   }
 
@@ -86,5 +88,10 @@ export default class GlimmerHnPwa extends Component {
 
   nextPage() {
     this.page = this.page + 1;
+  }
+
+  didUpdate() {
+    console.log('didUpdate', this.loading);
+    console.log('didUpdate', this.routeMode);
   }
 }
