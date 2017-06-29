@@ -1,53 +1,6 @@
 <ul>
   {{#each @results key="index" as |result|}}
-    {{#if result.about}}
-      <user-info @result={{result}}></user-info>
-    {{/if}}
-    {{#if result.title}}
-      <li class="news-item fadein">
-        <span class="score">{{result.points}}</span>
-        <span class="title">
-      <a href="{{result.url}}" target="_blank" rel="noopener">
-        {{result.title}}
-      </a>
-        <span class="host"> {{result.domain}}</span>
-      </span><br>
-        <span class="meta">
-    {{#if result.user}}
-      <span class="by">
-      by <a href="#/user/{{result.user}}" class="">{{result.user}}</a>
-      </span>
-    {{/if}}
-          <span class="time">
-            {{result.time_ago}}
-          </span>
-    <span class="comments-link">
-      | <a href="#/item/{{result.id}}" class="">{{result.comments_count}}</a>
-      </span>
-      </span><!---->
-      </li>
-    {{/if}}
-    {{#if result.comments}}
-      <h2>Comments</h2>
-      <div class="item-view-comments">
-        <p class="item-view-comments-header">
-          160 comments
-          <svg width="44px" height="44px" viewBox="0 0 44 44" class="spinner" style="display: none;">
-            <circle fill="none" stroke-width="4" stroke-linecap="round" cx="22" cy="22" r="20" class="path"></circle>
-          </svg>
-        </p>
-        <ul class="comment-children">
-          {{#each result.comments key="id" as |comment|}}
-            <comment-item @comment={{comment}} as |nestedComment|>
-              {{#each nestedComment key="id" as |nested|}}
-                <comment-item @comment={{nested}}></comment-item>
-              {{/each}}
-            </comment-item>
-          {{/each}}
-        </ul>
-      </div>
-
-    {{/if}}
+    <each-item @result={{result}}></each-item>
   {{/each}}
 </ul>
 
