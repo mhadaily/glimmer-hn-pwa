@@ -1,0 +1,18 @@
+<h2>Comments</h2>
+<div class="item-view-comments">
+  <p class="item-view-comments-header">
+    {{@result.comments_count}} {{#if (eq @result.comments_count 1)}} Comment  {{else}} Comments {{/if}}
+    <svg width="44px" height="44px" viewBox="0 0 44 44" class="spinner" style="display: none;">
+      <circle fill="none" stroke-width="4" stroke-linecap="round" cx="22" cy="22" r="20" class="path"></circle>
+    </svg>
+  </p>
+  <ul class="comment-children">
+    {{#each @result key="id" as |comment|}}
+      <comment-item @comment={{comment}} as |nestedComment|>
+        {{#each nestedComment key="id" as |nested|}}
+          <comment-item @comment={{nested}}></comment-item>
+        {{/each}}
+      </comment-item>
+    {{/each}}
+  </ul>
+</div>
