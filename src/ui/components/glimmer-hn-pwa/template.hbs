@@ -2,9 +2,8 @@
 
 <div class="news-view">
   <div class="news-list-nav">
-    More...
-    <!--<a onclick={{action previousPage}}>&lt; prev</a>-->
-    <!--<a onclick={{action nextPage}}>more &gt;</a>-->
+    <a onclick={{action previousPage}}>&lt; Prev</a>
+    <a onclick={{action nextPage}}>Next &gt;</a>
   </div>
   <div class="news-list">
     <div class="view">
@@ -12,7 +11,7 @@
         <loading-sign></loading-sign>
       {{else}}
         {{#if (eq routeMode 'item')}}
-          <comments-list @comments={{comments}}></comments-list>
+          <comments-list @comments={{comments}} @post={{post}}></comments-list>
         {{/if}}
         {{#if (noteq routeMode 'item')}}
           {{#if (noteq routeMode 'user')}}
@@ -23,6 +22,7 @@
           <user-info @userInfo={{userInfo}}></user-info>
         {{/if}}
       {{/if}}
+      <core-footer></core-footer>
     </div>
   </div>
 </div>
