@@ -11,8 +11,7 @@ export default class GlimmerHnPwa extends Component {
   @tracked results: any[] = [];
   @tracked routeMode: string = 'top';
 
-  constructor(options) {
-    super(options);
+  didInsertElement() {
     router
       .on({
         '/': () => this.getDataAndLoad('news', this.page),
@@ -26,7 +25,7 @@ export default class GlimmerHnPwa extends Component {
       .resolve();
   }
 
-  getEndpoint(model, page?) {
+   getEndpoint(model, page?) {
     return page ? `${API}/${model}?page=${page}` : `${API}/${model}`;
   }
 
@@ -45,7 +44,7 @@ export default class GlimmerHnPwa extends Component {
     this.loadModel(this.getEndpoint(`item/${id}`));
   }
 
-  loadModel(endpoint) {
+  private loadModel(endpoint) {
     this.results = [];
     fetchItems(endpoint).then((res) => {
       this.results = [ ...res ];
