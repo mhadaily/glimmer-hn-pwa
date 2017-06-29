@@ -91,7 +91,7 @@ export default class GlimmerHnPwa extends Component {
   }
 
   didUpdate() {
-    console.log('didUpdate', this.loading);
-    console.log('didUpdate', this.routeMode);
+    // console.log('didUpdate', this.loading);
+    // console.log('didUpdate', this.routeMode);
   }
 }
