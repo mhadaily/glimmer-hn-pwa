@@ -1,7 +1,7 @@
 import Component, { tracked } from '@glimmer/component';
 import Navigo from 'navigo';
 import fetchItems from '../../../utils/fetch';
-const API = 'https://node-hnapi.herokuapp.com';
+import { API }  from '../../../utils/constant/api';
 
 const router = new Navigo(null, true);
 
