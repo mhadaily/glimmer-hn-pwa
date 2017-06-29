@@ -7,11 +7,26 @@
     <!--<a onclick={{action nextPage}}>more &gt;</a>-->
   </div>
   <div class="news-list">
-    <div class="view">
-      <items-list
-        @results={{results}}
-        @onDestroy={{action cleanUp}}>
-      </items-list>
+    <div class="view fadein">
+      {{#if (eq @routeMode 'item')}}
+        <comments-list @comments={{comments}}></comments-list>
+      {{/if}}
+      {{#if (noteq @routeMode 'item')}}
+        {{#if (noteq @routeMode 'user')}}
+          <items-list @results={{results}}></items-list>
+        {{/if}}
+      {{/if}}
+      {{#if (eq @routeMode 'user')}}
+        <user-info @userInfo={{userInfo}}></user-info>
+      {{/if}}
+
+      {{#if loading}}
+        <ul>
+          <li class="news-item">
+            Loading...
+          </li>
+        </ul>
+      {{/if}}
     </div>
   </div>
 </div>

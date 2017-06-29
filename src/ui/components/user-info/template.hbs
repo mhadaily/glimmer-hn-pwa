@@ -1,20 +1,20 @@
 <li class="news-item fadein">
-  <h2>ABOUT {{@result.id}}</h2>
+  <h2>ABOUT {{@userInfo.id}}</h2>
   <div class="person">
     <div class="person--avatar">
-      {{#if @result.avg}}
-        <img src={{@result.avg}}>
+      {{#if @userInfo.avg}}
+        <img src={{@userInfo.avg}}>
       {{else}}
         <img
           src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAH0AAAB2CAMAAADSmWzUAAAC1lBMVEVHcEx+fn5+fn5/f39/f39/f39VVVV+fn5/f39+fn4AAACqqqr///9/f39+fn5+fn5mZmaZmZl/f39/f39/f39+fn5+fn5+fn5/f39+fn5+fn5/f39+fn5+fn5/f39/f39/f39tbW1+fn5/f39/f39+fn5/f39+fn5/f39+fn5/f3+FhYV+fn59fX1/f3+Dg4N+fn5/f39+fn5+fn5+fn5/f39+fn5/f39/f39+fn5/f39/f39/f39+fn51dXV/f3+IiIh9fX1+fn5+fn5+fn5+fn6BgYF/f3+RkZF+fn5/f39+fn5+fn59fX1+fn6CgoJ+fn55eXl/f393d3d/f39/f397e3t/f3+Hh4d/f39/f39/f39/f39+fn5/f398fHx/f39/f39/f39/f39+fn5+fn5/f39/f397e3t+fn5+fn5/f39+fn5+fn5/f39+fn5/f39/f39/f39/f39/f39/f39/f39+fn5/f39/f399fX1/f39/f397e3t/f39+fn5/f39+fn5+fn5+fn5+fn5zc3N+fn6AgIB/f39+fn5/f39+fn5/f39+fn54eHh/f39+fn5+fn5/f39/f39+fn5/f39+fn5/f39+fn5+fn5/f396enp/f39+fn5+fn5/f39/f394eHh+fn5+fn5/f39+fn5+fn58fHx/f399fX1+fn5+fn5+fn5+fn5/f39/f39+fn5/f39/f39/f39xcXF/f39/f39+fn5+fn6BgYF/f39+fn5+fn5+fn59fX19fX17e3t+fn5+fn6BgYGEhIR/f3+BgYF+fn5/f39/f398fHx/f39/f39/f39+fn5/f39+fn5/f39/f39/f39/f399fX2BgYGLi4t+fn5/f39/f398fHx8fHx+fn5/f39+fn5+fn5/f3+Dg4N/f3+BgYF/f39/f3+Hh4eFhYWCgoKIiIiGhoaEhISDg4OBgYGAgICJiYmKior0ts5gAAAA5nRSTlMA/P78Av4D+wT9AQMB+vn6BQUGFB7458scw+VY12kmQjYHyezmkz5j2u3iF5c3lB1lTu7Sx/RdogzdjCJqbQ3QD1PbpVdnOaQH47C/601hJeQXUg96giP2EW7CiKrxCC06LGierdSgzB3a95zv3Ny9dJoqwID4qH8W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'/>
       {{/if}}
       <br>
-      <span class="karma">Karma: {{@result.karma}}</span>
+      <span class="karma">Karma: {{@userInfo.karma}}</span>
     </div>
     <div class="person--info">
-      <h4>ID: {{@result.id}}</h4>
-      <h4>created: {{@result.id}}</h4>
-      {{{@result.about}}}
+      <h4>ID: {{@userInfo.id}}</h4>
+      <h4>created: {{@userInfo.id}}</h4>
+      {{{@userInfo.about}}}
     </div>
   </div>
 </li>

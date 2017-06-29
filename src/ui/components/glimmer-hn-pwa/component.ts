@@ -2,14 +2,20 @@ import Component, { tracked } from '@glimmer/component';
 import Navigo from 'navigo';
 import fetchItems from '../../../utils/fetch';
 import { API }  from '../../../utils/constant/api';
+import { News } from '../../../utils/model/news';
+import { Comments } from '../../../utils/model/comment';
+import { User } from '../../../utils/model/user';
 
 const router = new Navigo(null, true);
 
 export default class GlimmerHnPwa extends Component {
   appShell = document.getElementById('app-shell');
-  @tracked page: number = 0;
-  @tracked results: any[] = [];
-  @tracked routeMode: string = 'top';
+  @tracked page: number = 1;
+  @tracked results: News[];
+  @tracked comments: Comments;
+  @tracked userInfo: User;
+  @tracked routeMode: string = 'news';
+  @tracked loading: boolean = true;
 
   didInsertElement() {
     router
@@ -19,39 +25,53 @@ export default class GlimmerHnPwa extends Component {
         '/show': () => this.getDataAndLoad('show', this.page),
         '/ask': () => this.getDataAndLoad('ask', this.page),
         '/jobs': () => this.getDataAndLoad('jobs', this.page),
-        '/user/:username': (username) => this.user(username),
-        '/item/:id': (id) => this.comment(id),
+        '/user/:username': (username) => this.getDataAndLoad('user', this.page, username),
+        '/item/:id': (id) => this.getDataAndLoad('item', this.page, id),
       })
       .resolve();
+    this.removeAppShell();
   }
 
-   getEndpoint(model, page?) {
-    return page ? `${API}/${model}?page=${page}` : `${API}/${model}`;
+  private getEndpoint(model, page?, param?) {
+    return param ? `${API}/${model}/${param}` : `${API}/${model}?page=${page}`;
   }
 
-  getDataAndLoad(model, page, param?) {
+  private getDataAndLoad(model, page, params?) {
+    let param;
+    switch (model) {
+      case 'user':
+        param = params.username;
+        break;
+      case 'item':
+        param = params.id;
+        break;
+    }
     this.routeMode = model;
-    return this.loadModel(this.getEndpoint(model, page));
+    return this.loadModel(this.getEndpoint(model, page, param));
   }
 
-  user({ username }) {
-    this.routeMode = 'user';
-    this.loadModel(this.getEndpoint(`user/${username}`));
+  private loadModel(endpoint: string) {
+    this.loading = true;
+    fetchItems(endpoint)
+      .then((res) => {
+        switch (this.routeMode) {
+          case 'user':
+            this.userInfo = { ...res };
+            break;
+          case 'item':
+            this.comments = { ...res };
+            break;
+          default:
+            this.results = res;
+        }
+        this.loading = false;
+      });
   }
 
-  comment({ id }) {
-    this.routeMode = 'comment';
-    this.loadModel(this.getEndpoint(`item/${id}`));
-  }
-
-  private loadModel(endpoint) {
-    this.results = [];
-    fetchItems(endpoint).then((res) => {
-      this.results = [ ...res ];
-      if (this.appShell) {
-        this.appShell.remove();
-      }
-    });
+  removeAppShell() {
+    if (this.appShell) {
+      this.appShell.remove();
+    }
   }
 
   cleanUp() {
