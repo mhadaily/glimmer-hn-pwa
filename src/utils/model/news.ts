@@ -1,4 +1,4 @@
-export interface news {
+export interface News {
   id: number;
   comments_count: number;
   domain: string;
