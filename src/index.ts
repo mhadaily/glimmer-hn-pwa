@@ -24,7 +24,7 @@ requestAnimationFrame(() => {
   requestAnimationFrame(() => {
     performance.mark('afterPaint');
     setTimeout(() => {
-      performance.measure('download-parse-compile', 'beforeRender', 'afterRender');
+      performance.measure('download-parse-compile', 'beforeApp', 'afterRender');
       performance.measure('render', 'beforeRender', 'afterRender');
       performance.measure('paint', 'afterRender', 'afterPaint');
     }, 100);
