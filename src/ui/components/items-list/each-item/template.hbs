@@ -1,0 +1,25 @@
+{{#if @result.title}}
+  <li class="news-item fadein">
+    <span class="score">{{@result.points}}</span>
+    <span class="title">
+        <a href="{{@result.url}}" target="_blank" rel="noopener">
+          {{@result.title}}
+        </a>
+        <span class="host"> {{@result.domain}}</span>
+    </span>
+    <br>
+    <span class="meta">
+        {{#if @result.user}}
+          <span class="by">
+          by <a href="#/user/{{@result.user}}" class="">{{@result.user}}</a>
+          </span>
+        {{/if}}
+        <span class="time">
+          {{@result.time_ago}}
+        </span>
+        <span class="comments-link"> | <a href="#/item/{{@result.id}}" class="">{{@result.comments_count}}
+            {{#if (eq @result.comments_count 1)}} Comment  {{else}} Comments {{/if}}</a>
+        </span>
+    </span>
+  </li>
+{{/if}}
