@@ -14,12 +14,15 @@
           by <a href="#/user/{{@result.user}}" class="">{{@result.user}}</a>
           </span>
         {{/if}}
-        <span class="time">
-          {{@result.time_ago}}
-        </span>
+      <span class="time">
+        {{@result.time_ago}}
+      </span>
+      {{#if @result.comments_count}}
         <span class="comments-link"> | <a href="#/item/{{@result.id}}" class="">{{@result.comments_count}}
-            {{#if (eq @result.comments_count 1)}} Comment  {{else}} Comments {{/if}}</a>
+          {{#if (eq @result.comments_count 1)}} Comment  {{else}} Comments {{/if}}
+        </a>
         </span>
+      {{/if}}
     </span>
   </li>
 {{/if}}
