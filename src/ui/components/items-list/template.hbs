@@ -1,8 +1,7 @@
 <ul>
   {{#each @results key="index" as |result|}}
     {{#if result.about}}
-      ABOUT THIS PERSON:
-      {{{result.about}}}
+      <user-info @result={{result}}></user-info>
     {{/if}}
     {{#if result.title}}
       <li class="news-item fadein">
