@@ -21,23 +21,24 @@ export default class GlimmerHnPwa extends Component {
   didInsertElement() {
     router
       .on({
-        '/': () => this.getDataAndLoad('news', this.page),
-        '/newest': () => this.getDataAndLoad('newest', this.page),
-        '/show': () => this.getDataAndLoad('show', this.page),
-        '/ask': () => this.getDataAndLoad('ask', this.page),
-        '/jobs': () => this.getDataAndLoad('jobs', this.page),
-        '/user/:username': (username) => this.getDataAndLoad('user', this.page, username),
-        '/item/:id': (id) => this.getDataAndLoad('item', this.page, id),
+        '/': (page) => this.getDataAndLoad('news', page),
+        '/:page': (page) => this.getDataAndLoad('news', page),
+        '/newest/:page': (page) => this.getDataAndLoad('newest', page),
+        '/show/:page': (page) => this.getDataAndLoad('show', page),
+        '/ask/:page': (page) => this.getDataAndLoad('ask', page),
+        '/jobs/:page': (page) => this.getDataAndLoad('jobs', page),
+        '/user/:username': (username) => this.getDataAndLoad('user', { page: this.page }, username),
+        '/item/:id': (id) => this.getDataAndLoad('item', { page: this.page }, id),
       })
       .resolve();
     this.removeAppShell();
   }
 
-  private getEndpoint(model, page?, param?) {
+  private getEndpoint(model, page = this.page, param?) {
     return param ? `${API}/${model}/${param}` : `${API}/${model}?page=${page}`;
   }
 
-  private getDataAndLoad(model, page, params?) {
+  private getDataAndLoad(model, { page }, params?) {
     let param;
     switch (model) {
       case 'user':
@@ -48,6 +49,7 @@ export default class GlimmerHnPwa extends Component {
         break;
     }
     this.routeMode = model;
+    console.log(this.getEndpoint(model, page, param));
     return this.loadModel(this.getEndpoint(model, page, param));
   }
 
