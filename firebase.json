@@ -1,13 +1,19 @@
 {
   "hosting": {
     "public": "dist",
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ],
     "headers": [
       {
         "source": "/",
         "headers": [
           {
             "key": "Link",
-            "value": "</app-2fd32084ad29ceebadbad50c308ef1a1.js>;rel=preload;as=script"
+            "value": "</app-6b0464f47ae3a300015454b3d183af3a.js>;rel=preload;as=script"
           }
         ]
       },
@@ -25,7 +31,34 @@
         "headers": [
           {
             "key": "Cache-Control",
-            "value": "max-age=86400"
+            "value": "max-age=7200"
+          }
+        ]
+      },
+      {
+        "source": "/",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache, no-store"
+          }
+        ]
+      },
+      {
+        "source": "index.html",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache, no-store"
+          }
+        ]
+      },
+      {
+        "source": "sw-registration.js",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache, no-store, must-revalidate"
           }
         ]
       }
