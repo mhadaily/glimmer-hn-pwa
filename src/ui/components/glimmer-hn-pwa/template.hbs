@@ -1,10 +1,19 @@
 <core-header @routeMode={{routeMode}}></core-header>
 
 <div class="news-view">
-  <div class="news-list-nav">
-    <!--<a onclick={{action previousPage}}>&lt; Prev</a>-->
-    <!--<a onclick={{action nextPage}}>Next &gt;</a>-->
-  </div>
+  {{#if (noteq routeMode 'item')}}
+    {{#if (noteq routeMode 'user')}}
+      <div class="news-list-nav">
+        {{#if (noteq page 1)}}
+          <a onclick={{action previousPage}}>&lt; Prev</a>
+        {{/if}}
+        {{page}}
+        {{#if results.length}}
+          <a onclick={{action nextPage}}>Next &gt;</a>
+        {{/if}}
+      </div>
+    {{/if}}
+  {{/if}}
   <div class="news-list">
     <div class="view">
       {{#if loading}}
