@@ -50,7 +50,6 @@ export default class GlimmerHnPwa extends Component {
         break;
     }
     this.routeMode = model;
-    console.log(this.getEndpoint(model, page, param));
     return this.loadModel(this.getEndpoint(model, page, param));
   }
 
