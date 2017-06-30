@@ -8,6 +8,7 @@
   },
   "scripts": {
     "build": "rm -rf ./dist && ember build -prod && node ./functions/update-firebase-json.js",
+    "build:prod": "rm -rf ./dist && ember build -prod && node ./functions/update-firebase-json.js && firebase deploy",
     "start": "ember server",
     "test": "ember test"
   },
