@@ -13,7 +13,7 @@
         "headers": [
           {
             "key": "Link",
-            "value": "</app-6b0464f47ae3a300015454b3d183af3a.js>;rel=preload;as=script"
+            "value": "</app-257feccbe6b3150a1d405ccd0e864321.js>;rel=preload;as=script"
           }
         ]
       },
@@ -40,7 +40,7 @@
         "headers": [
           {
             "key": "Cache-Control",
-            "value": "no-cache, no-store"
+            "value": "no-cache, no-store, must-revalidate"
           }
         ]
       },
@@ -49,7 +49,7 @@
         "headers": [
           {
             "key": "Cache-Control",
-            "value": "no-cache, no-store"
+            "value": "no-cache, no-store, must-revalidate"
           }
         ]
       },
