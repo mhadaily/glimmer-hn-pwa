@@ -13,7 +13,11 @@
         "headers": [
           {
             "key": "Link",
-            "value": "</app-c537af75b5934f2757606b87c04a93d3.js>;rel=preload;as=script"
+            "value": "</app-9ad4ee5d5b76a2d44ba270bf3f2579fe.js>;rel=preload;as=script"
+          },
+          {
+            "key": "Link",
+            "value": "</sw-registration.js>;rel=preload;as=script"
           }
         ]
       },
