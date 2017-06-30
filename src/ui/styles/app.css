@@ -8,7 +8,7 @@ body {
 }
 
 a, body {
-  color: #34495e;
+  color: #0059a3;
 }
 
 a {
@@ -101,7 +101,7 @@ a {
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 480px) {
   .container-logo > a > span {
     display: none;
   }
@@ -192,12 +192,16 @@ a {
 
 .news-item .host, .news-item .meta {
   font-size: .85em;
-  color: #828282;
+  color: #34495e;
 }
 
 .news-item .host, .news-item .meta {
   font-size: .85em;
-  color: #828282;
+  color: #34495e;
+}
+
+.news-item .title > a {
+  color: #000;
 }
 
 .item-view-comments {
@@ -227,6 +231,8 @@ a {
 .comment .by, .comment .text, .comment .toggle {
   font-size: .9em;
   margin: 1em 0;
+  font-weight: 300;
+  color: #333;
 }
 
 .comment .text {
@@ -234,7 +240,7 @@ a {
 }
 
 .comment .by {
-  color: #828282;
+  color: #34495e;
 }
 
 .comment .toggle {
@@ -250,7 +256,7 @@ a {
 }
 
 .comment .toggle a {
-  color: #828282;
+  color: #34495e;
   cursor: pointer;
 }
 
@@ -269,63 +275,6 @@ a {
   -ms-animation: fadein 1s; /* Internet Explorer */
   -o-animation: fadein 1s; /* Opera < 12.1 */
   animation: fadein 1s;
-}
-
-.slideInFromLeft {
-  -webkit-animation: 1s ease-out 0s 1 slideInFromLeft; /* Safari, Chrome and Opera > 12.1 */
-  -moz-animation: 1s ease-out 0s 1 slideInFromLeft; /* Firefox < 16 */
-  -ms-animation: 1s ease-out 0s 1 slideInFromLeft; /* Internet Explorer */
-  -o-animation: 1s ease-out 0s 1 slideInFromLeft; /* Opera < 12.1 */
-  animation: 1s ease-out 0s 1 slideInFromLeft;
-}
-
-@keyframes slideInFromLeft {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
-/* Firefox < 16 */
-@-moz-keyframes slideInFromLeft {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
-/* Safari, Chrome and Opera > 12.1 */
-@-webkit-keyframes slideInFromLeft {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
-/* Internet Explorer */
-@-ms-keyframes slideInFromLeft {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
-/* Opera < 12.1 */
-@-o-keyframes slideInFromLeft {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(0);
-  }
 }
 
 @keyframes fadein {
