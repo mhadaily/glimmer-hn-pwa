@@ -32,6 +32,7 @@ export default class GlimmerHnPwa extends Component {
       })
       .resolve();
     this.removeAppShell();
+    this.page = 1;
   }
 
   private getEndpoint(model, page = this.page, param?) {
@@ -78,22 +79,4 @@ export default class GlimmerHnPwa extends Component {
     }
   }
 
-  cleanUp() {
-    this.page = 0;
-  }
-
-  previousPage() {
-    if (this.page > 0) {
-      this.page = this.page - 1;
-    }
-  }
-
-  nextPage() {
-    this.page = this.page + 1;
-  }
-
-  didUpdate() {
-    // console.log('didUpdate', this.loading);
-    // console.log('didUpdate', this.routeMode);
-  }
 }
