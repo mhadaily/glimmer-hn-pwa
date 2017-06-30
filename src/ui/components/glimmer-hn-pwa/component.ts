@@ -22,24 +22,30 @@ export default class GlimmerHnPwa extends Component {
     router
       .on({
         '/': (page) => this.getDataAndLoad('news', page),
-        '/:page': (page) => this.getDataAndLoad('news', page),
-        '/newest/:page': (page) => this.getDataAndLoad('newest', page),
-        '/show/:page': (page) => this.getDataAndLoad('show', page),
-        '/ask/:page': (page) => this.getDataAndLoad('ask', page),
-        '/jobs/:page': (page) => this.getDataAndLoad('jobs', page),
+        '/newest': (page) => this.getDataAndLoad('newest', page),
+        '/show': (page) => this.getDataAndLoad('show', page),
+        '/ask': (page) => this.getDataAndLoad('ask', page),
+        '/jobs': (page) => this.getDataAndLoad('jobs', page),
         '/user/:username': (username) => this.getDataAndLoad('user', { page: this.page }, username),
         '/item/:id': (id) => this.getDataAndLoad('item', { page: this.page }, id),
       })
       .resolve();
+
+    router.hooks({
+      before: (done, params) => {
+        this.page = 1;
+        done();
+      },
+    });
+
     this.removeAppShell();
-    this.page = 1;
   }
 
   private getEndpoint(model, page = this.page, param?) {
     return param ? `${API}/${model}/${param}` : `${API}/${model}?page=${page}`;
   }
 
-  private getDataAndLoad(model, { page }, params?) {
+  private getDataAndLoad(model, page, params?) {
     let param;
     switch (model) {
       case 'user':
@@ -76,6 +82,23 @@ export default class GlimmerHnPwa extends Component {
     if (this.appShell) {
       this.appShell.remove();
     }
+  }
+
+  previousPage() {
+    this.page--;
+    this.updateModel;
+  }
+
+  nextPage() {
+    this.page++;
+    this.updateModel;
+  }
+
+  @tracked('page')
+  get updateModel() {
+    const { url } = router.lastRouteResolved();
+    const model = url === '' ? 'news' : url.substr(1).split('/')[0];
+    return this.getDataAndLoad(model, this.page);
   }
 
 }
