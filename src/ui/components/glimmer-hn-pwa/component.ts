@@ -101,4 +101,7 @@ export default class GlimmerHnPwa extends Component {
     return this.getDataAndLoad(model, this.page);
   }
 
+  didDestroy() {
+    console.log('didDestory!');
+  }
 }
