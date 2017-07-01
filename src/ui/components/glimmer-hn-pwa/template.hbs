@@ -1,5 +1,4 @@
-<core-header @routeMode={{routeMode}}></core-header>
-
+{{component 'core-header' routeMode=routeMode}}
 <div class="news-view">
   {{#if (noteq routeMode 'item')}}
     {{#if (noteq routeMode 'user')}}
@@ -24,14 +23,14 @@
         {{/if}}
         {{#if (noteq routeMode 'item')}}
           {{#if (noteq routeMode 'user')}}
-          {{component 'items-list' results=results}}
+            {{component 'items-list' results=results}}
           {{/if}}
         {{/if}}
         {{#if (eq routeMode 'user')}}
           {{component 'user-info' userInfo=userInfo}}
         {{/if}}
       {{/if}}
-      <core-footer></core-footer>
+      {{component 'core-footer'}}
     </div>
   </div>
 </div>
