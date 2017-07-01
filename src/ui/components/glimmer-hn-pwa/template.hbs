@@ -20,15 +20,15 @@
         <loading-sign></loading-sign>
       {{else}}
         {{#if (eq routeMode 'item')}}
-          <comments-list @comments={{comments}} @post={{post}}></comments-list>
+          {{component 'comments-list' comments=comments post=post}}
         {{/if}}
         {{#if (noteq routeMode 'item')}}
           {{#if (noteq routeMode 'user')}}
-            <items-list @results={{results}}></items-list>
+          {{component 'items-list' results=results}}
           {{/if}}
         {{/if}}
         {{#if (eq routeMode 'user')}}
-          <user-info @userInfo={{userInfo}}></user-info>
+          {{component 'user-info' userInfo=userInfo}}
         {{/if}}
       {{/if}}
       <core-footer></core-footer>
