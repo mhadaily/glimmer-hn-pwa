@@ -359,4 +359,11 @@ pre {
   overflow-x: auto;
 }
 
+.hidden{
+  visibility: hidden;
+}
+.show {
+  visibility: visible;
+}
+
 /*# sourceMappingURL=app.css.map */

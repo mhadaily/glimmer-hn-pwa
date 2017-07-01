@@ -3,13 +3,9 @@
   {{#if (noteq routeMode 'item')}}
     {{#if (noteq routeMode 'user')}}
       <div class="news-list-nav">
-        {{#if (noteq page 1)}}
-          <a onclick={{action previousPage}}>&lt; Prev</a>
-        {{/if}}
+        <a class='{{if (eq page 1) "hidden"}}' onclick={{action previousPage}}>&lt; Prev</a>
         {{page}}
-        {{#if results.length}}
-          <a onclick={{action nextPage}}>Next &gt;</a>
-        {{/if}}
+        <a class='{{if (eq results.length 0) "hidden"}}' onclick={{action nextPage}}>Next &gt;</a>
       </div>
     {{/if}}
   {{/if}}
