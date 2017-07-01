@@ -355,5 +355,8 @@ footer {
   text-align: center;
   padding: 30px 0;
 }
+pre {
+  overflow-x: auto;
+}
 
 /*# sourceMappingURL=app.css.map */
