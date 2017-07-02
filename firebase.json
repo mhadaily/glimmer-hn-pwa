@@ -13,11 +13,24 @@
         "headers": [
           {
             "key": "Link",
-            "value": "</app-4a86526c64a14991de9229fef33dc629.js>;rel=preload;as=script"
+            "value": "</app-219140fe79e0b858ee546c38686109f0.js>;rel=preload;as=script"
           },
           {
             "key": "Link",
             "value": "</sw-registration.js>;rel=preload;as=script"
+          },
+          {
+            "key": "Cache-Control",
+            "value": "no-cache, no-store, must-revalidate"
+          }
+        ]
+      },
+      {
+        "source": "sw.js",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache, no-store, must-revalidate"
           }
         ]
       },
@@ -26,25 +39,16 @@
         "headers": [
           {
             "key": "Cache-Control",
-            "value": "max-age=30672000"
+            "value": "public, max-age=31536000"
           }
         ]
       },
       {
-        "source": "**/*.@(json|js)",
+        "source": "@(app)-*.js",
         "headers": [
           {
             "key": "Cache-Control",
-            "value": "max-age=7200"
-          }
-        ]
-      },
-      {
-        "source": "index.html",
-        "headers": [
-          {
-            "key": "Cache-Control",
-            "value": "no-cache, no-store, must-revalidate"
+            "value": "public, max-age=31536000"
           }
         ]
       },
