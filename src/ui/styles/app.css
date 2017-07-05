@@ -65,7 +65,6 @@ a {
   margin-right: 10px;
   display: inline-block;
   vertical-align: middle;
-  filter: brightness(0) invert(1);
 }
 
 .view {
