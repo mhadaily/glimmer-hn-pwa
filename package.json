@@ -7,8 +7,12 @@
     "test": "tests"
   },
   "scripts": {
-    "build": "rm -rf ./dist && ember build -prod",
-    "build:prod": "rm -rf ./dist && ember build -prod && node ./functions/update-firebase-json.js && firebase deploy",
+    "removeDist": "rm -rf ./dist",
+    "build": "npm run removeDist && ember build -prod && npm run inlineSW",
+    "inlineSW": "node ./functions/write-sw-registration-to-index.js",
+    "deploy": "firebase deploy",
+    "updateFJson": "node ./functions/update-firebase-json.js",
+    "build:prod": "npm run removeDist && ember build -prod && npm run inlineSw && npm run updateFJson && npm run deploy ",
     "start": "ember server",
     "test": "ember test"
   },
