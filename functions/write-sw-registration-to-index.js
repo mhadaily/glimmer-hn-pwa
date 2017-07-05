@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { exec } = require('child_process');
 
 // it's a very simple script to just update firebase http2 push header after success build
 const DIST = path.join(__dirname, '../dist');
@@ -18,4 +19,14 @@ const newIndex = file.replace(SW_REGISTRATION, `<script>${swContent}</script>`);
  PLEASE DON"T JUDGE ME FOR THIS CODE, I WILL MAKE IT MUCH BETTER LATER.
  */
 fs.writeFileSync(INDEX_FILE, newIndex);
+
+// remove sw-registration.js
+exec('rm ./dist/sw-registration.js', (error) => {
+  if (error) {
+    console.error(`exec error: ${error}`);
+    return;
+  }
+  console.log(app_js + ' has been removed!');
+});
+
 console.log('index.html has been successfully updated.');
