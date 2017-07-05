@@ -13,7 +13,7 @@
         "headers": [
           {
             "key": "Link",
-            "value": "</app-ab7b1ad7012b25f5ac7d0ada8c68ce92.js>;rel=preload;as=script"
+            "value": "</app-82d76d2fd59b36eaadcb75bce7c564b8.js>;rel=preload;as=script"
           },
           {
             "key": "Cache-Control",
