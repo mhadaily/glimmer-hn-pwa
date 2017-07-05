@@ -46,7 +46,7 @@ module.exports = function(defaults) {
     minifyJS: {
       enabled: prod,
       options: {
-        mangle: true,
+        mangle: false,
       },
     },
     minifyCSS: {
