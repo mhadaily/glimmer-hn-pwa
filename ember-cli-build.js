@@ -12,7 +12,7 @@ module.exports = function(defaults) {
   let app = new GlimmerApp(defaults, {
     fingerprint: {
       enabled: prod,
-      exclude: ['icon'],
+      exclude: ['icon', 'user'],
       generateAssetMap: prod,
       fingerprintAssetMap: prod,
       customHash,
