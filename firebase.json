@@ -16,10 +16,6 @@
             "value": "</app-7f08e199c3cd17ae75959f2b85ce5e32.js>;rel=preload;as=script"
           },
           {
-            "key": "Link",
-            "value": "</sw-registration.js>;rel=preload;as=script"
-          },
-          {
             "key": "Cache-Control",
             "value": "no-cache, no-store, must-revalidate"
           }
