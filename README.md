@@ -1,8 +1,6 @@
 # Glimmer.js Hacker News Progressive Web App
 
-<div style="text-align:center">
 [![Lighthouse 2.2.1](glimmer-hn-pwa.png)](https://glimmer-hn-pwa.firebaseapp.com)
-</div>
 
 This is an implementation of a progressive web app with Glimmer (Ember template engine). 
 Here is the result
