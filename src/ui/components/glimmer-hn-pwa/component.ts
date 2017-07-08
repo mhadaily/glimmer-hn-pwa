@@ -18,6 +18,7 @@ export default class GlimmerHnPwa extends Component {
   @tracked userInfo: User;
   @tracked routeMode: string = 'news';
   @tracked loading: boolean = true;
+  repeat = Array.from(Array(30).keys());
 
   didInsertElement() {
     router

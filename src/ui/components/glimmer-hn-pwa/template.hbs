@@ -13,7 +13,7 @@
   <div class="news-list">
     <div class="view">
       {{#if loading}}
-        <loading-sign></loading-sign>
+        {{component 'loading-sign' repeat=repeat}}
       {{else}}
         {{#if (eq routeMode 'item')}}
           {{component 'comments-list' comments=comments post=post}}
