@@ -3,14 +3,17 @@
 This is an implementation of a progressive web app with Glimmer (Ember template engine). 
 Here is the result
 
-with webpagetest on 3G: 
+with webpagetest on 3G and EM: 
 
-[Performance Results (webpagetest):](https://www.webpagetest.org/result/170630_KQ_b029f2c4ecfa24fd6c8932cc6c2d04b2/)
+### [Performance Results (webpagetest EM):](https://www.webpagetest.org/result/170708_DK_bcd8d8c3da33a5f7badc29417f3b95c7/)
 [![webpagetest](webpagetest.jpg)](https://glimmer-hn-pwa.firebaseapp.com/)
 
-and with Lighthouse 2.1.0
+### [Performance Results (webpagetest 3G):](https://www.webpagetest.org/result/170708_34_1ae3fbe0c7f0f90ad0b46282ab2ce5a5/)
+[![webpagetest](webpagetest3g.jpg)](https://glimmer-hn-pwa.firebaseapp.com/)
 
-[![Lighthouse 2.1.0](lighthouse.jpg)](https://glimmer-hn-pwa.firebaseapp.com/)
+### and with Lighthouse 2.1.0
+
+[![Lighthouse 2.2.1](lighthouse.jpg)](https://glimmer-hn-pwa.firebaseapp.com/)
 
 ## TODO
 * Consider using official api to have realtime update
@@ -33,7 +36,10 @@ and with Lighthouse 2.1.0
 
 ### Building
 
-* `ember build` (development)
-* `ember build:prod` (production)
+* `ember build` (production)
+* `ember build:prod` (production and Deploy to Firebase)
+
+## [Contributing](CONTRIBUTING.MD)
+Please feel free to open a PR and improve Glimmer PWA.
 
 ## Contributors
