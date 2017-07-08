@@ -31,14 +31,16 @@ export default class GlimmerHnPwa extends Component {
       })
       .resolve();
 
+    this.removeAppShell();
+  }
+
+  didUpdate() {
     router.hooks({
       before: (done, params) => {
         this.page = 1;
         done();
       },
     });
-
-    this.removeAppShell();
   }
 
   private getEndpoint(model, page = this.page, param?) {
