@@ -1,19 +1,21 @@
 # Glimmer.js Hacker News Progressive Web App
 
+[![Lighthouse 2.2.1](./glimmer-hn-pwa.png)](https://glimmer-hn-pwa.firebaseapp.com)
+
 This is an implementation of a progressive web app with Glimmer (Ember template engine). 
 Here is the result
 
 with webpagetest on 3G and EM: 
 
 ### [Performance Results (webpagetest EM):](https://www.webpagetest.org/result/170708_DK_bcd8d8c3da33a5f7badc29417f3b95c7/)
-[![webpagetest](webpagetest.jpg)](https://glimmer-hn-pwa.firebaseapp.com/)
+[![webpagetest](webpagetest.jpg)](https://www.webpagetest.org/result/170708_DK_bcd8d8c3da33a5f7badc29417f3b95c7/)
 
 ### [Performance Results (webpagetest 3G):](https://www.webpagetest.org/result/170708_34_1ae3fbe0c7f0f90ad0b46282ab2ce5a5/)
-[![webpagetest](webpagetest3g.jpg)](https://glimmer-hn-pwa.firebaseapp.com/)
+[![webpagetest](webpagetest3g.jpg)](https://www.webpagetest.org/result/170708_34_1ae3fbe0c7f0f90ad0b46282ab2ce5a5/)
 
 ### and with [Lighthouse 2.2.1](https://glimmer-hn-pwa.firebaseapp.com/lighthouse.html)
 
-[![Lighthouse 2.2.1](lighthouse.jpg)](https://glimmer-hn-pwa.firebaseapp.com/)
+[![Lighthouse 2.2.1](lighthouse.jpg)](https://glimmer-hn-pwa.firebaseapp.com/lighthouse.html)
 
 ## TODO
 * Consider using official api to have realtime update
