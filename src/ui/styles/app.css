@@ -355,15 +355,51 @@ footer {
   text-align: center;
   padding: 30px 0;
 }
+
 pre {
   overflow-x: auto;
 }
 
-.hidden{
+.hidden {
   visibility: hidden;
 }
+
 .show {
   visibility: visible;
+}
+
+@keyframes loading {
+  0% {
+    background-color: rgba(221, 221, 221, 0.35);
+  }
+  25% {
+    background-color: rgba(221, 221, 221, 0.55);
+  }
+  50% {
+    background-color: rgba(221, 221, 221, 0.85);
+  }
+  75% {
+    background-color: rgba(221, 221, 221, 0.55);
+  }
+  100% {
+    background-color: rgba(221, 221, 221, 0.35);
+  }
+}
+
+.loading {
+  display: block;
+  width: 80%;
+  height: 10px;
+  animation: loading 1s linear infinite;
+}
+
+.loading.md {
+  width: 50%;
+}
+
+.loading.sm {
+  width: 30%;
+  margin-left: 25px;
 }
 
 /*# sourceMappingURL=app.css.map */
