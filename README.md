@@ -11,7 +11,7 @@ with webpagetest on 3G and EM:
 ### [Performance Results (webpagetest 3G):](https://www.webpagetest.org/result/170708_34_1ae3fbe0c7f0f90ad0b46282ab2ce5a5/)
 [![webpagetest](webpagetest3g.jpg)](https://glimmer-hn-pwa.firebaseapp.com/)
 
-### and with Lighthouse 2.1.0
+### and with [Lighthouse 2.2.1](https://glimmer-hn-pwa.firebaseapp.com/lighthouse.html)
 
 [![Lighthouse 2.2.1](lighthouse.jpg)](https://glimmer-hn-pwa.firebaseapp.com/)
 
