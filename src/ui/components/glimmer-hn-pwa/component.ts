@@ -8,6 +8,7 @@ import { User } from '../../../utils/model/user';
 
 const router = new Navigo(null, true);
 
+// There a lot to improve, I will refactor some of these codes soon. Or feel free to open a PR.
 export default class GlimmerHnPwa extends Component {
   appShell = document.getElementById('app-shell');
   @tracked page: number = 1;
