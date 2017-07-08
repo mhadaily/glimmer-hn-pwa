@@ -100,7 +100,8 @@ export default class GlimmerHnPwa extends Component {
   @tracked('page')
   get updateModel() {
     const { url } = router.lastRouteResolved();
-    const model = url === '' ? 'news' : url.substr(1).split('/')[0];
+    const isUrl = !url.trim();
+    const model = isUrl ? 'news' : url.substr(1).split('/')[0];
     return this.getDataAndLoad(model, this.page);
   }
 
