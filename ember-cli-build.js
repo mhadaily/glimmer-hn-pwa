@@ -17,6 +17,9 @@ module.exports = function(defaults) {
       fingerprintAssetMap: prod,
       customHash,
     },
+    addons: {
+      blacklist: prod ? [] : ['ember-service-worker'],
+    },
     'esw-index': {
       location: 'index.html',
       // Bypass esw-index and don't serve cached index file for matching URLs
