@@ -5,7 +5,6 @@ import { API }  from '../../../utils/constant/api';
 import { News } from '../../../utils/model/news';
 import { Comments, Comment } from '../../../utils/model/comment';
 import { User } from '../../../utils/model/user';
-// import insertParam from '../../../utils/insert-param';
 
 const router = new Navigo(null, true);
 
@@ -53,7 +52,6 @@ export default class GlimmerHnPwa extends Component {
   }
 
   private getDataAndLoad(model, { id, page }) {
-    console.log(`model: ${model}, page: ${page}, id ${id}`);
     this.routeMode = model;
     return this.loadModel(this.getEndpoint({ model, id, page }));
   }
