@@ -5,31 +5,33 @@ import { API }  from '../../../utils/constant/api';
 import { News } from '../../../utils/model/news';
 import { Comments, Comment } from '../../../utils/model/comment';
 import { User } from '../../../utils/model/user';
+// import insertParam from '../../../utils/insert-param';
 
 const router = new Navigo(null, true);
 
 // There a lot to improve, I will refactor some of these codes soon. Or feel free to open a PR.
 export default class GlimmerHnPwa extends Component {
   appShell = document.getElementById('app-shell');
-  @tracked page: number = 1;
   @tracked results: News[];
+  @tracked page: number;
   @tracked comments: Comment[];
   @tracked post: Comments;
   @tracked userInfo: User;
-  @tracked routeMode: string = 'news';
+  @tracked routeMode: string;
   @tracked loading: boolean = true;
-  repeat = Array.from(Array(30).keys());
+  public repeat = Array.from(Array(30).keys());
 
   didInsertElement() {
     router
       .on({
-        '/': (page) => this.getDataAndLoad('news', page),
-        '/newest': (page) => this.getDataAndLoad('newest', page),
-        '/show': (page) => this.getDataAndLoad('show', page),
-        '/ask': (page) => this.getDataAndLoad('ask', page),
-        '/jobs': (page) => this.getDataAndLoad('jobs', page),
-        '/user/:username': (username) => this.getDataAndLoad('user', { page: this.page }, username),
-        '/item/:id': (id) => this.getDataAndLoad('item', { page: this.page }, id),
+        '/': () => router.navigate('/news/1'),
+        '/news/:page': (params) => this.getDataAndLoad('news', params),
+        '/newest/:page': (params) => this.getDataAndLoad('newest', params),
+        '/show/:page': (params) => this.getDataAndLoad('show', params),
+        '/ask/:page': (params) => this.getDataAndLoad('ask', params),
+        '/jobs/:page': (params) => this.getDataAndLoad('jobs', params),
+        '/user/:id': (params) => this.getDataAndLoad('user', params),
+        '/item/:id': (params) => this.getDataAndLoad('item', params),
       })
       .resolve();
 
@@ -37,30 +39,23 @@ export default class GlimmerHnPwa extends Component {
   }
 
   didUpdate() {
-    router.hooks({
-      before: (done, params) => {
-        this.page = 1;
-        done();
-      },
-    });
+    this.page = this.getPageNumber();
+    // router.hooks({
+    //   before: (done, params) => {
+    //     this.page = this.getPageNumber();
+    //     done();
+    //   },
+    // });
   }
 
-  private getEndpoint(model, page = this.page, param?) {
-    return param ? `${API}/${model}/${param}` : `${API}/${model}?page=${page}`;
+  private getEndpoint({ model, id, page }) {
+    return id ? `${API}/${model}/${id}` : `${API}/${model}?page=${page}`;
   }
 
-  private getDataAndLoad(model, page, params?) {
-    let param;
-    switch (model) {
-      case 'user':
-        param = params.username;
-        break;
-      case 'item':
-        param = params.id;
-        break;
-    }
+  private getDataAndLoad(model, { id, page }) {
+    console.log(`model: ${model}, page: ${page}, id ${id}`);
     this.routeMode = model;
-    return this.loadModel(this.getEndpoint(model, page, param));
+    return this.loadModel(this.getEndpoint({ model, id, page }));
   }
 
   private loadModel(endpoint: string) {
@@ -89,21 +84,28 @@ export default class GlimmerHnPwa extends Component {
   }
 
   previousPage() {
-    this.page--;
-    this.updateModel;
+    this.updateModel(this.getPageNumber() - 1);
   }
 
   nextPage() {
-    this.page++;
-    this.updateModel;
+    this.updateModel(this.getPageNumber() + 1);
   }
 
-  @tracked('page')
-  get updateModel() {
-    const { url } = router.lastRouteResolved();
-    const isUrl = !url.trim();
-    const model = isUrl ? 'news' : url.substr(1).split('/')[0];
-    return this.getDataAndLoad(model, this.page);
+  // It's just working with this app, need to generalize it later, don't have time now!
+  getPageNumber(): number {
+    const page = document.location.hash.split('/').slice(-1)[0];
+    return Number(page);
+  }
+
+  // It's just working with this app, need to generalize it later, don't have time now!
+  getHash(): string {
+    return document.location.hash.split('/').slice(0, -1).join('/');
+  }
+
+  updateModel(page: number): string {
+    this.page = page;
+    if (page < 1) return;
+    return document.location.hash = this.getHash() + '/' + page;
   }
 
   didDestroy() {
