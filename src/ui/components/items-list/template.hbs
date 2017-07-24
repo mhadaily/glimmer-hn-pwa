@@ -1,5 +1,5 @@
 <ul class="fadein">
   {{#each @results key="index" as |result|}}
-    {{component 'single-item' result=result}}
+    {{component 'single-item' result=result routeMode=@routeMode}}
   {{/each}}
 </ul>

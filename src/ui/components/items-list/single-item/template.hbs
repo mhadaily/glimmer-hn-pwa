@@ -2,10 +2,16 @@
   <li class="news-item">
     <span class="score">{{@result.points}}</span>
     <span class="title">
+      {{#if (eq @routeMode 'ask')}}
+        <span class="darkText">
+          {{@result.title}}
+        </span>
+      {{else}}
         <a href="{{@result.url}}" target="_blank" rel="noopener">
           {{@result.title}}
         </a>
-        <span class="host"> {{@result.domain}}</span>
+      {{/if}}
+      <span class="host"> {{@result.domain}}</span>
     </span>
     <br>
     <span class="meta">

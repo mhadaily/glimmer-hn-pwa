@@ -200,7 +200,7 @@ a {
   color: #34495e;
 }
 
-.news-item .title > a {
+.news-item .title > a, .darkText {
   color: #000;
 }
 
