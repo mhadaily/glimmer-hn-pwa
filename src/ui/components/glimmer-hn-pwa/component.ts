@@ -1,7 +1,7 @@
 import Component, { tracked } from '@glimmer/component';
 import Navigo from 'navigo';
 import fetchItems from '../../../utils/fetch';
-import { API }  from '../../../utils/constant/api';
+import { API } from '../../../utils/constant/api';
 import { News } from '../../../utils/model/news';
 import { Comments, Comment } from '../../../utils/model/comment';
 import { User } from '../../../utils/model/user';
@@ -11,6 +11,7 @@ const router = new Navigo(null, true);
 // There a lot to improve, I will refactor some of these codes soon. Or feel free to open a PR.
 export default class GlimmerHnPwa extends Component {
   appShell = document.getElementById('app-shell');
+  app = document.getElementById('app');
   @tracked results: News[];
   @tracked page: number;
   @tracked comments: Comment[];
@@ -39,12 +40,12 @@ export default class GlimmerHnPwa extends Component {
 
   didUpdate() {
     this.page = this.getPageNumber();
-    // router.hooks({
-    //   before: (done, params) => {
-    //     this.page = this.getPageNumber();
-    //     done();
-    //   },
-    // });
+    router.hooks({
+      after: (done, params) => {
+        // this.page = this.getPageNumber();
+        this.app.scrollIntoView(false);
+      },
+    });
   }
 
   private getEndpoint({ model, id, page }) {
