@@ -14,7 +14,21 @@
           {
             "key": "Link",
             "value": "</app-6d4f7a1d0fe97a2bc45d08ec91a446b4.js>;rel=preload;as=script"
-          },
+          }
+        ]
+      },
+      {
+        "source": "/",
+        "headers": [
+          {
+            "key": "Link",
+            "value": "<https://node-hnapi.herokuapp.com>;rel=preconnect;crossorigin"
+          }
+        ]
+      },
+      {
+        "source": "/",
+        "headers": [
           {
             "key": "Link",
             "value": "</sw.js>;rel=preload;as=script"
