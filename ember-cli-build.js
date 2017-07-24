@@ -13,7 +13,7 @@ module.exports = function(defaults) {
     fingerprint: {
       enabled: prod,
       exclude: ['icon', 'user'],
-      generateAssetMap: prod,
+      generateAssetMap: false,
       fingerprintAssetMap: prod,
       customHash,
     },
