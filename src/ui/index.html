@@ -12,11 +12,13 @@
   <!-- Web Application Manifest -->
   <link rel="manifest" href="/manifest.json">
   <!-- Chrome for Android theme color -->
+  <link rel="icon" type="image/png" href="/icon-512x512.png"/>
   <meta name="theme-color" content="#0059a3">
-  <link rel="dns-prefetch" href="//google-analytics.com">
-  <link rel="dns-prefetch" href="https:/node-hnapi.herokuapp.com">
-  <link rel="”preconnect”" href="https://node-hnapi.herokuapp.com/news?page=1">
+  <link rel="dns-prefetch" href="https://node-hnapi.herokuapp.com">
+  <link href="https://node-hnapi.herokuapp.com" rel="preconnect" crossorigin>
   <link rel="prefetch" href="/assets/icon.jpg">
+  <link rel="prefetch" href="/icon-512x512.png">
+  <link rel="prefetch" href="/manifest.json">
 
   {{content-for "head"}}
 
