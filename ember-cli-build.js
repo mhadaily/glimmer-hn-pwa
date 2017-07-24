@@ -34,6 +34,7 @@ module.exports = function(defaults) {
       ],
       exclude: [
         '**/*.txt',
+        '**/*.css',
         'test.json',
         'sw.js',
       ],
