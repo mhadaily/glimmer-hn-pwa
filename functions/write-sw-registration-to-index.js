@@ -9,6 +9,7 @@ const SW_REGISTRATION = '<script src="/sw-registration.js"></script>';
 
 const dir_list = fs.readdirSync(DIST);
 const app_js = dir_list.find(file => file.startsWith('sw-') && file.endsWith('.js'));
+const app_css = dir_list.find(file => file.startsWith('app-') && file.endsWith('.css'));
 const swContent = fs.readFileSync(DIST + '/' + app_js, 'utf8');
 const file = fs.readFileSync(INDEX_FILE, 'utf8');
 // replace sw-registration.js with the content
@@ -27,6 +28,15 @@ exec('rm ./dist/sw-registration.js', (error) => {
     return;
   }
   console.log(app_js + ' has been removed!');
+});
+
+// remove app-**.css file
+exec(`rm ./dist/${app_css}`, (error) => {
+  if (error) {
+    console.error(`exec error: ${error}`);
+    return;
+  }
+  console.log(app_css + ' has been removed!');
 });
 
 console.log('index.html has been successfully updated.');
