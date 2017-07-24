@@ -41,8 +41,7 @@ export default class GlimmerHnPwa extends Component {
   didUpdate() {
     this.page = this.getPageNumber();
     router.hooks({
-      after: (done, params) => {
-        // this.page = this.getPageNumber();
+      after: () => {
         this.app.scrollIntoView(false);
       },
     });
