@@ -7,13 +7,13 @@ Here is the result
 
 with webpagetest on 3G and EM: 
 
-### [Performance Results (webpagetest EM):](https://www.webpagetest.org/result/170708_DK_bcd8d8c3da33a5f7badc29417f3b95c7/)
-[![webpagetest](webpagetest.jpg)](https://www.webpagetest.org/result/170708_DK_bcd8d8c3da33a5f7badc29417f3b95c7/)
+### [Performance Results (webpagetest EM):](https://www.webpagetest.org/result/170724_59_43187e264846ff2314364b01642ee1e1/)
+[![webpagetest](webpagetest.jpg)](https://www.webpagetest.org/result/170724_59_43187e264846ff2314364b01642ee1e1/)
 
-### [Performance Results (webpagetest 3G):](https://www.webpagetest.org/result/170708_34_1ae3fbe0c7f0f90ad0b46282ab2ce5a5/)
-[![webpagetest](webpagetest3g.jpg)](https://www.webpagetest.org/result/170708_34_1ae3fbe0c7f0f90ad0b46282ab2ce5a5/)
+### [Performance Results (webpagetest 3G):](https://www.webpagetest.org/result/170724_Q5_ae999c76745dd61df39f744a6b10f45b/)
+[![webpagetest](webpagetest3g.jpg)](https://www.webpagetest.org/result/170724_Q5_ae999c76745dd61df39f744a6b10f45b/)
 
-### and with [Lighthouse 2.2.1](https://glimmer-hn-pwa.firebaseapp.com/lighthouse.html)
+### and with [Lighthouse 2.2.1](https://www.webpagetest.org/lighthouse.php?test=170724_Q5_ae999c76745dd61df39f744a6b10f45b&run=2)
 
 [![Lighthouse 2.2.1](lighthouse.jpg)](https://glimmer-hn-pwa.firebaseapp.com/lighthouse.html)
 
