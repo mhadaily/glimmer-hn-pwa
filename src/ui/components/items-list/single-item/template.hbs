@@ -2,14 +2,14 @@
   <li class="news-item">
     <span class="score">{{@result.points}}</span>
     <span class="title">
-      {{#if (eq @routeMode 'ask')}}
-        <span class="darkText">
-          {{@result.title}}
-        </span>
-      {{else}}
+      {{#if (validateUrl @result.url)}}
         <a href="{{@result.url}}" target="_blank" rel="noopener">
           {{@result.title}}
         </a>
+      {{else}}
+        <span class="darkText">
+          {{@result.title}}
+        </span>
       {{/if}}
       <span class="host"> {{@result.domain}}</span>
     </span>
