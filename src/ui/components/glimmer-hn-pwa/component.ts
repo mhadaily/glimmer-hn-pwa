@@ -11,6 +11,7 @@ const router = new Navigo(null, true);
 // There a lot to improve, I will refactor some of these codes soon. Or feel free to open a PR.
 export default class GlimmerHnPwa extends Component {
   appShell = document.getElementById('app-shell');
+  loadingScript = document.getElementById('loadingScript');
   app = document.getElementById('app');
   @tracked results: News[];
   @tracked page: number;
@@ -78,6 +79,7 @@ export default class GlimmerHnPwa extends Component {
   removeAppShell() {
     if (this.appShell) {
       this.appShell.remove();
+      this.loadingScript.remove();
     }
   }
 
