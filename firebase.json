@@ -3,7 +3,11 @@
     "public": "dist",
     "rewrites": [
       {
-        "source": "**",
+        "source": "!/__/**",
+        "destination": "/index.html"
+      },
+      {
+        "source": "**/!(*.js|*.html|*.css|*.json|*.svg|*.png|*.jpg|*.jpeg)",
         "destination": "/index.html"
       }
     ],
@@ -13,7 +17,7 @@
         "headers": [
           {
             "key": "Link",
-            "value": "</app-5eb2b15facadbb5ce25949da1c8c93c8.js>;rel=preload;as=script"
+            "value": "</app-44ca1f91b9f123c0db4976533857e04c.js>;rel=preload;as=script"
           }
         ]
       }
