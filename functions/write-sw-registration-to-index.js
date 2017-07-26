@@ -8,12 +8,15 @@ const INDEX_FILE = path.join(__dirname, '../dist/index.html');
 const SW_REGISTRATION = '<script src="/sw-registration.js"></script>';
 
 const dir_list = fs.readdirSync(DIST);
-const app_js = dir_list.find(file => file.startsWith('sw-') && file.endsWith('.js'));
+const sw_js = dir_list.find(file => file.startsWith('sw-') && file.endsWith('.js'));
+const app_js = dir_list.find(file => file.startsWith('app-') && file.endsWith('.js'));
 const app_css = dir_list.find(file => file.startsWith('app-') && file.endsWith('.css'));
-const swContent = fs.readFileSync(DIST + '/' + app_js, 'utf8');
+const swContent = fs.readFileSync(DIST + '/' + sw_js, 'utf8');
 const file = fs.readFileSync(INDEX_FILE, 'utf8');
 // replace sw-registration.js with the content
-const newIndex = file.replace(SW_REGISTRATION, `<script>${swContent}</script>`);
+const newIndex = file
+  .replace(SW_REGISTRATION, `<script>${swContent}</script>`)
+  .replace('<link rel="prefetch" href="/sw.js">', `<link rel="prefetch" href="/sw.js"><link rel="preload" href="${app_js}">`);
 
 // write new index with inline sw-registration.js
 /*
@@ -27,7 +30,7 @@ exec('rm ./dist/sw-registration.js', (error) => {
     console.error(`exec error: ${error}`);
     return;
   }
-  console.log(app_js + ' has been removed!');
+  console.log(sw_js + ' has been removed!');
 });
 
 // remove app-**.css file
