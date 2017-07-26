@@ -18,12 +18,12 @@
   },
   "devDependencies": {
     "@glimmer/application": "^0.7.2",
-    "@glimmer/application-pipeline": "^0.8.0",
-    "@glimmer/blueprint": "^0.5.0",
+    "@glimmer/application-pipeline": "^0.8.3",
+    "@glimmer/blueprint": "^0.5.3",
     "@glimmer/component": "^0.6.0",
-    "@glimmer/resolver": "^0.4.0",
+    "@glimmer/resolver": "^0.4.1",
     "broccoli-asset-rev": "^2.5.0",
-    "ember-cli": "^2.14.0",
+    "ember-cli": "^2.14.1",
     "ember-cli-html-minifier": "^0.2.1",
     "ember-cli-inject-live-reload": "^1.6.1",
     "ember-cli-inline-content": "^0.4.1",
@@ -38,7 +38,7 @@
     "git-rev-sync": "^1.9.1",
     "randomstring": "^1.1.5",
     "regenerator-runtime": "^0.10.5",
-    "typescript": "^2.4.1"
+    "typescript": "^2.4.2"
   },
   "engines": {
     "node": ">= 4.0"
