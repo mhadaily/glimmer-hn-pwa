@@ -102,23 +102,13 @@ export default class GlimmerHnPwa extends Component {
     }
   }
 
-  previousPage() {
-    this.updateModel(Number(this.params.page) - 1);
-  }
-
-  nextPage() {
-    this.updateModel(Number(this.params.page) + 1);
-  }
-
-  // It's just working with this app, need to generalize it later, don't have time now!
-  getHash(): string {
-    return document.location.hash.split('/').slice(0, -1).join('/');
+  changePage(minusPlus) {
+    this.updateModel(this.page + Number(minusPlus));
   }
 
   updateModel(page: number): string {
     this.page = page;
-    if (page < 1) return;
-    return document.location.hash = this.getHash() + '/' + page;
+    return document.location.hash = `#/${this.routeMode}/${page}`;
   }
 
   didDestroy() {
