@@ -14,7 +14,7 @@ export default class GlimmerHnPwa extends Component {
   loadingScript = document.getElementById('loadingScript');
   app = document.getElementById('app');
   @tracked results: News[];
-  @tracked page: number;
+  @tracked page: number = 1;
   @tracked comments: Comment[];
   @tracked post: Comments;
   @tracked userInfo: User;
@@ -42,7 +42,6 @@ export default class GlimmerHnPwa extends Component {
   }
 
   didUpdate() {
-    this.page = this.getPageNumber();
     router.hooks({
       after: () => {
         this.app.scrollIntoView(false);
@@ -51,6 +50,7 @@ export default class GlimmerHnPwa extends Component {
   }
 
   private getEndpoint({ model, id, page }) {
+    this.page = Number(page);
     return id ? `${API}/${model}/${id}` : `${API}/${model}?page=${page}`;
   }
 
@@ -89,18 +89,11 @@ export default class GlimmerHnPwa extends Component {
   }
 
   previousPage() {
-    this.updateModel(this.getPageNumber() - 1);
+    this.updateModel(this.page - 1);
   }
 
   nextPage() {
-    this.updateModel(this.getPageNumber() + 1);
-  }
-
-  // It's just working with this app, need to generalize it later, don't have time now!
-  getPageNumber(): number {
-    const page = Number(document.location.hash.split('/').slice(-1)[0]);
-    if (isNaN(page)) router.navigate('news/1');
-    return page;
+    this.updateModel(this.page + 1);
   }
 
   // It's just working with this app, need to generalize it later, don't have time now!
