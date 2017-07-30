@@ -15,7 +15,7 @@ export default class GlimmerHnPwa extends Component {
   loadingScript = document.getElementById('loadingScript');
   app = document.getElementById('app');
   @tracked results: News[];
-  @tracked page: number;
+  @tracked page: number = 1;
   @tracked comments: Comment[];
   @tracked post: Comments;
   @tracked userInfo: User;
@@ -28,7 +28,7 @@ export default class GlimmerHnPwa extends Component {
 
   constructor(options) {
     super(options);
-
+    document.location.hash = '#/news/1';
     onChange((model: string, componentName: string, params: any) => {
       this.currentRouteComponent = componentName;
       this.params = params;
