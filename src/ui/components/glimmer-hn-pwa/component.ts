@@ -9,6 +9,8 @@ import { User } from '../../../utils/model/user';
 const router = new Navigo(null, true);
 
 // There a lot to improve, I will refactor some of these codes soon. Or feel free to open a PR.
+// TODO: need to fix [Violation] 'requestAnimationFrame' handler took xxx
+
 export default class GlimmerHnPwa extends Component {
   appShell = document.getElementById('app-shell');
   loadingScript = document.getElementById('loadingScript');
