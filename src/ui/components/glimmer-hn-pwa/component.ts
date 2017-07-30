@@ -90,12 +90,8 @@ export default class GlimmerHnPwa extends Component {
     }
   }
 
-  previousPage() {
-    this.updateModel(this.page - 1);
-  }
-
-  nextPage() {
-    this.updateModel(this.page + 1);
+  changePage(minusPlus) {
+    this.updateModel(this.page + Number(minusPlus));
   }
 
   updateModel(page: number): string {
