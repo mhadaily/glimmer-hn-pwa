@@ -92,4 +92,6 @@ export default class GlimmerHnPwa extends Component {
     this.page = page;
     return document.location.hash = `#/${this.routeMode}/${page}`;
   }
+
+  didDestroy() {}
 }
