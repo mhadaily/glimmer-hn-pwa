@@ -50,12 +50,12 @@ export default class GlimmerHnPwa extends Component {
   }
 
   private getEndpoint({ model, id, page }) {
-    this.page = Number(page);
     return id ? `${API}/${model}/${id}` : `${API}/${model}?page=${page}`;
   }
 
   private getDataAndLoad(model, { id, page }) {
     this.routeMode = model;
+    this.page = Number(page);
     return this.loadModel(this.getEndpoint({ model, id, page }));
   }
 
