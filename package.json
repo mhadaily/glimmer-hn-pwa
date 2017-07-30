@@ -45,6 +45,7 @@
   },
   "private": true,
   "dependencies": {
-    "navigo": "^5.2.0"
+    "navigo": "^5.2.0",
+    "route-recognizer": "^0.3.3"
   }
 }

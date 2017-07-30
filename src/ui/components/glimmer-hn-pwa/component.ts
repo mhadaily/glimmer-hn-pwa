@@ -1,12 +1,13 @@
 import Component, { tracked } from '@glimmer/component';
-import Navigo from 'navigo';
+// import Navigo from 'navigo';
 import fetchItems from '../../../utils/fetch';
 import { API } from '../../../utils/constant/api';
 import { News } from '../../../utils/model/news';
 import { Comments, Comment } from '../../../utils/model/comment';
 import { User } from '../../../utils/model/user';
+import { onChange } from '../../../utils/router';
 
-const router = new Navigo(null, true);
+// const router = new Navigo(null, true);
 
 // There a lot to improve, I will refactor some of these codes soon. Or feel free to open a PR.
 export default class GlimmerHnPwa extends Component {
@@ -22,32 +23,45 @@ export default class GlimmerHnPwa extends Component {
   @tracked componentName: string;
   @tracked loading: boolean = true;
   public repeat = Array.from(Array(30).keys());
+  @tracked protected currentRouteComponent: string;
+  @tracked protected params: any;
+
+  constructor(options) {
+    super(options);
+
+    onChange((model: string, componentName: string, params: any) => {
+      this.currentRouteComponent = componentName;
+      this.params = params;
+      this.routeMode = model;
+      this.page = Number(this.params.page);
+      this.getDataAndLoad(model, params);
+    });
+  }
 
   didInsertElement() {
-    router
-      .on({
-        '/': () => router.navigate('/news/1'),
-        '/news/:page': (params) => this.getDataAndLoad('news', params),
-        '/newest/:page': (params) => this.getDataAndLoad('newest', params),
-        '/show/:page': (params) => this.getDataAndLoad('show', params),
-        '/ask/:page': (params) => this.getDataAndLoad('ask', params),
-        '/jobs/:page': (params) => this.getDataAndLoad('jobs', params),
-        '/user/:id': (params) => this.getDataAndLoad('user', params),
-        '/item/:id': (params) => this.getDataAndLoad('item', params),
-      })
-      .resolve();
-
-    router.notFound(() => router.navigate('/'));
+    // router
+    //   .on({
+    //     '/': () => router.navigate('/news/1'),
+    //     '/news/:page': (params) => this.getDataAndLoad('news', params),
+    //     '/newest/:page': (params) => this.getDataAndLoad('newest', params),
+    //     '/show/:page': (params) => this.getDataAndLoad('show', params),
+    //     '/ask/:page': (params) => this.getDataAndLoad('ask', params),
+    //     '/jobs/:page': (params) => this.getDataAndLoad('jobs', params),
+    //     '/user/:id': (params) => this.getDataAndLoad('user', params),
+    //     '/item/:id': (params) => this.getDataAndLoad('item', params),
+    //   })
+    //   .resolve();
+    //
+    // router.notFound(() => router.navigate('/'));
     this.removeAppShell();
   }
 
   didUpdate() {
-    this.page = this.getPageNumber();
-    router.hooks({
-      after: () => {
-        this.app.scrollIntoView(false);
-      },
-    });
+    // router.hooks({
+    //   after: () => {
+    //     this.app.scrollIntoView(false);
+    //   },
+    // });
   }
 
   private getEndpoint({ model, id, page }) {
@@ -89,18 +103,11 @@ export default class GlimmerHnPwa extends Component {
   }
 
   previousPage() {
-    this.updateModel(this.getPageNumber() - 1);
+    this.updateModel(Number(this.params.page) - 1);
   }
 
   nextPage() {
-    this.updateModel(this.getPageNumber() + 1);
-  }
-
-  // It's just working with this app, need to generalize it later, don't have time now!
-  getPageNumber(): number {
-    const page = Number(document.location.hash.split('/').slice(-1)[0]);
-    if (isNaN(page)) router.navigate('news/1');
-    return page;
+    this.updateModel(Number(this.params.page) + 1);
   }
 
   // It's just working with this app, need to generalize it later, don't have time now!
