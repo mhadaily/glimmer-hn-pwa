@@ -106,8 +106,4 @@ export default class GlimmerHnPwa extends Component {
     if (page < 1) return;
     return document.location.hash = this.getHash() + '/' + page;
   }
-
-  didDestroy() {
-    console.log('didDestory!');
-  }
 }
