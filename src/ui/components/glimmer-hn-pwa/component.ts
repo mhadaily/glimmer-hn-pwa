@@ -20,7 +20,6 @@ export default class GlimmerHnPwa extends Component {
   @tracked post: Comments;
   @tracked userInfo: User;
   @tracked routeMode: string;
-  @tracked componentName: string;
   @tracked loading: boolean = true;
   public repeat = Array.from(Array(30).keys());
 
@@ -70,16 +69,13 @@ export default class GlimmerHnPwa extends Component {
         switch (this.routeMode) {
           case 'user':
             this.userInfo = { ...res };
-            this.componentName = 'user-info';
             break;
           case 'item':
             this.comments = [...res.comments];
             this.post = { ...res };
-            this.componentName = 'comments-list';
             break;
           default:
             this.results = res;
-            this.componentName = 'items-list';
         }
       });
   }

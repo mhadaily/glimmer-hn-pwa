@@ -15,7 +15,19 @@
       {{#if loading}}
         {{component 'loading-sign' repeat=repeat}}
       {{else}}
-        {{component componentName comments=comments post=post results=results userInfo=userInfo}}
+        {{#if (eq routeMode 'item')}}
+          {{component 'comments-list' comments=comments post=post}}
+        {{/if}}
+        {{#if (noteq routeMode 'item')}}
+          {{#if (noteq routeMode 'user')}}
+            {{component 'items-list' results=results routeMode=routeMode}}
+          {{/if}}
+        {{/if}}
+        {{#if (eq routeMode 'user')}}
+          {{component 'user-info' userInfo=userInfo}}
+        {{/if}}
+        <!-- Glimmer throwing error in this case -->
+      {{!--component componentName comments=comments post=post results=results userInfo=userInfo--}}
       {{/if}}
       {{component 'core-footer'}}
     </div>
