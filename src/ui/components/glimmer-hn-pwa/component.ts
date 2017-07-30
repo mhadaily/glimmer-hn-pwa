@@ -36,6 +36,7 @@ export default class GlimmerHnPwa extends Component {
       })
       .resolve();
 
+    router.notFound(() => router.navigate('/'));
     this.removeAppShell();
   }
 
@@ -93,8 +94,9 @@ export default class GlimmerHnPwa extends Component {
 
   // It's just working with this app, need to generalize it later, don't have time now!
   getPageNumber(): number {
-    const page = document.location.hash.split('/').slice(-1)[0];
-    return Number(page);
+    const page = Number(document.location.hash.split('/').slice(-1)[0]);
+    if (isNaN(page)) router.navigate('news/1');
+    return page;
   }
 
   // It's just working with this app, need to generalize it later, don't have time now!
