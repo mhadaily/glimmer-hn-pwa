@@ -13,7 +13,6 @@ const router = new Navigo(null, true);
 
 export default class GlimmerHnPwa extends Component {
   appShell = document.getElementById('app-shell');
-  loadingScript = document.getElementById('loadingScript');
   app = document.getElementById('app');
   @tracked results: News[];
   @tracked page: number = 1;
@@ -26,6 +25,9 @@ export default class GlimmerHnPwa extends Component {
   public repeat = Array.from(Array(30).keys());
 
   didInsertElement() {
+    if (this.appShell) {
+      this.appShell.remove();
+    }
     router
       .on({
         '/': () => router.navigate('/news/1'),
@@ -40,7 +42,6 @@ export default class GlimmerHnPwa extends Component {
       .resolve();
 
     router.notFound(() => router.navigate('/'));
-    this.removeAppShell();
   }
 
   didUpdate() {
@@ -81,13 +82,6 @@ export default class GlimmerHnPwa extends Component {
             this.componentName = 'items-list';
         }
       });
-  }
-
-  removeAppShell() {
-    if (this.appShell) {
-      this.appShell.remove();
-      this.loadingScript.remove();
-    }
   }
 
   changePage(minusPlus) {
