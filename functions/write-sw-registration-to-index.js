@@ -15,7 +15,7 @@ const swContent = fs.readFileSync(DIST + '/' + sw_js, 'utf8');
 const file = fs.readFileSync(INDEX_FILE, 'utf8');
 // replace sw-registration.js with the content
 const newIndex = file
-  .replace(SW_REGISTRATION, `<script defer>${swContent}</script>`)
+  .replace(SW_REGISTRATION, `<script defer>${swContent}</script>`);
 
 // write new index with inline sw-registration.js
 /*
